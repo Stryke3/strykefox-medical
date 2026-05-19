@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 88" fill="none">
+  <defs>
+    <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="18%" stop-color="#c8d9ea"/>
+      <stop offset="38%" stop-color="#002d75"/>
+      <stop offset="56%" stop-color="#0d83e8"/>
+      <stop offset="76%" stop-color="#e8f4ff"/>
+      <stop offset="100%" stop-color="#1a3c6e"/>
+    </linearGradient>
+    <linearGradient id="chrome2" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.92)"/>
+      <stop offset="30%" stop-color="rgba(255,255,255,0.05)"/>
+      <stop offset="62%" stop-color="rgba(0,41,112,0.88)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.82)"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="rgba(0,42,96,0.28)"/>
+    </filter>
+  </defs>
+  <!-- Fox body / main shape -->
+  <path d="M20 70 L28 36 L52 4 L76 28 L108 18 L90 56 L120 88 L70 70 L38 88 Z"
+    fill="url(#chrome)" filter="url(#shadow)"/>
+  <!-- Inner chrome highlight -->
+  <path d="M30 72 L36 42 L52 10 L72 30 L100 22 L86 54 L110 82 L68 66 L42 82 Z"
+    fill="url(#chrome2)" opacity="0.72"/>
+  <!-- Eye -->
+  <ellipse cx="68" cy="38" rx="5" ry="4" fill="rgba(255,255,255,0.9)"/>
+  <ellipse cx="68" cy="38" rx="2.5" ry="2" fill="#0a4fa8"/>
+</svg>
