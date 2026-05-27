@@ -1,15 +1,26 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useRef } from "react";
-
-const navLinks = [
-  { label: "CarePath", href: "/carepath" },
-  { label: "SPEAR", href: "/platform" },
-  { label: "NorthStar Surgical", href: "https://northstar.strykefox.com" },
-  { label: "Maternity", href: "https://mommycarekit.strykefox.com" },
-  { label: "SoC13", href: "https://soc13.strykefox.com" },
-  { label: "StrykePac Ex-Im", href: "/strykepac" },
+const doctrine = [
+  {
+    label: "VERIFY",
+    platform: "BENEFITS",
+    desc: "Eligibility confirmed before a single product moves. Provider-directed. Documentation-backed.",
+  },
+  {
+    label: "DOCUMENT",
+    platform: "PATHWAY",
+    desc: "Documentation packets built to payer standards. Compliance-forward. Audit-ready at every step.",
+  },
+  {
+    label: "COORDINATE",
+    platform: "FULFILLMENT",
+    desc: "Product coordination, delivery scheduling, and proof-of-delivery capture handled end to end.",
+  },
+  {
+    label: "DELIVER",
+    platform: "READY",
+    desc: "Billing-ready packet assembled. Providers stay focused on care. CarePath manages the workflow.",
+  },
 ];
 
 const platforms = [
@@ -45,214 +56,428 @@ const platforms = [
   },
 ];
 
-const doctrine = [
-  {
-    label: "VERIFY",
-    platform: "BENEFITS",
-    desc: "Eligibility confirmed before a single product moves. Provider-directed. Documentation-backed.",
-  },
-  {
-    label: "DOCUMENT",
-    platform: "PATHWAY",
-    desc: "Documentation packets built to payer standards. Compliance-forward. Audit-ready at every step.",
-  },
-  {
-    label: "COORDINATE",
-    platform: "FULFILLMENT",
-    desc: "Product coordination, delivery scheduling, and proof-of-delivery capture handled end to end.",
-  },
-  {
-    label: "DELIVER",
-    platform: "READY",
-    desc: "Billing-ready packet assembled. Providers stay focused on care. CarePath manages the workflow.",
-  },
-];
-
 const verticals = [
   {
     name: "CarePath",
-    tag: "Recovery Coordination Infrastructure",
+    tag: "RECOVERY COORDINATION",
     headline: "Between the clinical trigger and the patient's recovery environment.",
     body: "CarePath verifies the need, documents the pathway, coordinates fulfillment, captures proof of delivery, and assembles the billing-ready packet. Providers identify the clinical need. CarePath manages the operating workflow behind the scenes.",
     cta: "Enter CarePath",
     href: "https://carepath.strykefox.com",
-    bg: "#fff",
-    color: "#0a0a0a",
-    accent: "#2563eb",
+    dark: false,
   },
   {
     name: "SPEAR",
-    tag: "Platform Intelligence",
+    tag: "PLATFORM INTELLIGENCE",
     headline: "Score risk before it becomes revenue loss.",
     body: "Trident AI scoring, Poseidon storage, and Aries field deployment operate in one continuous intelligence loop. No handoffs. No gaps. Operational visibility across every active patient episode and provider account.",
     cta: "Enter SPEAR",
     href: "/platform",
-    bg: "#090E1C",
-    color: "#fff",
-    accent: "#2563eb",
+    dark: true,
   },
   {
     name: "NorthStar Surgical",
-    tag: "Surgical Innovation",
+    tag: "SURGICAL INNOVATION",
     headline: "Device commercialization built for the OR floor.",
     body: "NorthStar Innovations builds Ex-Im pathways and commercializes surgical devices around real operating room workflow and case volume. Case-ready support. Documentation discipline. Built for surgeons, surgical practices, and ASCs.",
     cta: "Enter NorthStar",
     href: "https://northstar.strykefox.com",
-    bg: "#fff",
-    color: "#0a0a0a",
-    accent: "#2563eb",
+    dark: false,
   },
   {
     name: "Maternity",
-    tag: "CarePath Maternal",
+    tag: "CAREPATH MATERNAL",
     headline: "Maternal recovery coordination, done correctly.",
     body: "CarePath Maternal helps women's health clinics coordinate pregnancy and postpartum recovery products through provider-directed documentation, benefit verification, and fulfillment support. Available in English and Spanish.",
     cta: "Enter Maternity",
     href: "https://mommycarekit.strykefox.com",
-    bg: "#090E1C",
-    color: "#fff",
-    accent: "#2563eb",
+    dark: true,
   },
   {
     name: "SoC13",
-    tag: "Compliance Engine",
+    tag: "COMPLIANCE ENGINE",
     headline: "Documentation that defends itself.",
     body: "Automated HIPAA billing validation, audit trail generation, and regulatory compliance across every vertical. Always current. Always billing-ready. Built to stay aligned with payer policy, documentation standards, and reimbursement requirements.",
     cta: "Enter SoC13",
     href: "https://soc13.strykefox.com",
-    bg: "#fff",
-    color: "#0a0a0a",
-    accent: "#2563eb",
+    dark: false,
   },
   {
     name: "StrykePac Ex-Im SA",
-    tag: "Export & Import",
+    tag: "EXPORT & IMPORT",
     headline: "Surgical technology with global distribution infrastructure.",
     body: "Compliant cross-border distribution for DME, biologics, and implants — structured for real international OR procurement. Documentation and compliance built in from day one. A serious operating partner for regulated healthcare execution.",
     cta: "Enter StrykePac",
     href: "/strykepac",
-    bg: "#090E1C",
-    color: "#fff",
-    accent: "#2563eb",
+    dark: true,
   },
 ];
 
 export default function Home() {
-  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".fade-up").forEach((el) => {
-              el.classList.add("visible");
-            });
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div className="snap-container">
-      {/* NAV — fixed over all sections */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, display: "flex", alignItems: "center", padding: "20px 48px", background: "rgba(255,255,255,0.9)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", marginRight: 48 }}>
-          <span style={{ fontWeight: 800, fontSize: 15, color: "#0a0a0a", letterSpacing: "0.05em" }}>STRYKEFOX</span>
-          <span style={{ fontWeight: 300, fontSize: 12, color: "#0a0a0a", letterSpacing: "0.1em" }}>MEDICAL</span>
-        </Link>
-        <div style={{ display: "flex", gap: 32, flex: 1 }}>
-          {navLinks.map((l) => (
-            <Link key={l.label} href={l.href} style={{ fontSize: 12, fontWeight: 500, color: "#0a0a0a", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-              {l.label}
-            </Link>
-          ))}
-        </div>
-        <Link href="/request-access" style={{ fontSize: 11, fontWeight: 600, color: "#0a0a0a", textDecoration: "none", letterSpacing: "0.1em", border: "1.5px solid #0a0a0a", padding: "10px 20px", textTransform: "uppercase" }}>
-          Request Access
-        </Link>
-      </nav>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; overflow: hidden; }
+        .sfm-scroll {
+          height: 100vh;
+          overflow-y: scroll;
+          scroll-snap-type: y mandatory;
+          scroll-behavior: smooth;
+        }
+        .sfm-section {
+          height: 100vh;
+          scroll-snap-align: start;
+          scroll-snap-stop: always;
+        }
+        .platform-card {
+          display: flex;
+          flex-direction: column;
+          padding: 16px 20px;
+          border-left: 2px solid rgba(255,255,255,0.06);
+          text-decoration: none;
+          transition: border-color 0.2s ease;
+        }
+        .platform-card:hover {
+          border-left-color: #2563eb;
+        }
+        .doctrine-col {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 0 32px;
+          border-right: 1px solid rgba(255,255,255,0.06);
+        }
+        .doctrine-col:last-child {
+          border-right: none;
+        }
+        .nav-link {
+          font-family: 'Inter', sans-serif;
+          font-size: 13px;
+          font-weight: 500;
+          color: #0a0a0a;
+          text-decoration: none;
+          letter-spacing: 0.04em;
+          transition: opacity 0.2s;
+        }
+        .nav-link:hover { opacity: 0.5; }
+        .cta-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-family: 'Inter', sans-serif;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          text-decoration: none;
+          padding-bottom: 4px;
+          border-bottom: 1px solid;
+          transition: opacity 0.2s;
+        }
+        .cta-link:hover { opacity: 0.6; }
+      `}</style>
 
-      {/* SECTION 1 — HERO */}
-      <section className="snap-section" ref={(el) => { sectionRefs.current[0] = el; }} style={{ display: "flex" }}>
-        {/* LEFT */}
-        <div style={{ flex: "0 0 52%", background: "#fff", backgroundImage: "none", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
-          <div style={{ padding: "120px 56px 0", zIndex: 10, position: "relative" }} className="fade-up">
-            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", color: "#2563eb", marginBottom: 24, textTransform: "uppercase" }}>StrykeFox Medical</p>
-            <h1 style={{ fontWeight: 900, fontSize: "clamp(3.5rem, 6vw, 6.5rem)", lineHeight: 1.0, color: "#0a0a0a", margin: 0, maxWidth: 620 }}>
-              Care-pathway infrastructure for modern healthcare recovery.
-            </h1>
-            <p style={{ fontSize: 18, color: "#555", marginBottom: 32 }}>Verified. Documented. Delivered.</p>
-            <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-              <Link href="/providers" style={{ display: "inline-block", background: "#0a0a0a", color: "#fff", padding: "14px 24px", fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textDecoration: "none", textTransform: "uppercase", border: "1.5px solid #0a0a0a", borderRadius: 2 }}>
-                For Providers →
-              </Link>
-              <Link href="/carepath" style={{ display: "inline-block", background: "transparent", color: "#0a0a0a", padding: "14px 24px", fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textDecoration: "none", textTransform: "uppercase", border: "1.5px solid #0a0a0a", borderRadius: 2 }}>
-                Explore CarePath →
-              </Link>
-            </div>
-          </div>
-          <div style={{ flex: 1, position: "relative", marginTop: 32 }}>
-            <img src="/images/doctor-hero.jpg" alt="Clinical" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
-            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", background: "rgba(255,255,255,0.92)", backdropFilter: "blur(8px)", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
-              {doctrine.map((d, i) => (
-                <div key={d.label} style={{ padding: "24px 20px", borderRight: i < 3 ? "1px solid rgba(0,0,0,0.08)" : "none" }}>
-                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", color: "#0a0a0a", margin: "0 0 4px" }}>{d.label}</p>
-                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", color: "#2563eb", margin: "0 0 10px" }}>{d.platform}</p>
-                  <p style={{ fontSize: 11, color: "#555", margin: 0, lineHeight: 1.5 }}>{d.desc}</p>
-                </div>
+      <div className="sfm-scroll">
+
+        {/* SECTION 1: HERO */}
+        <section className="sfm-section" style={{ display: "flex", flexDirection: "column" }}>
+
+          {/* NAV */}
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "22px 64px",
+            background: "#ffffff",
+            borderBottom: "1px solid rgba(0,0,0,0.06)",
+            zIndex: 10,
+            flexShrink: 0,
+          }}>
+            <span style={{
+              fontFamily: "'Inter Tight', Inter, sans-serif",
+              fontWeight: 800,
+              fontSize: "14px",
+              letterSpacing: "0.1em",
+              color: "#0a0a0a",
+            }}>
+              STRYKEFOX MEDICAL
+            </span>
+            <nav style={{ display: "flex", gap: "36px" }}>
+              {[
+                { label: "Platform", href: "/platform" },
+                { label: "Verticals", href: "#verticals" },
+                { label: "Compliance", href: "https://soc13.strykefox.com" },
+                { label: "Contact", href: "/contact" },
+              ].map((item) => (
+                <a key={item.label} href={item.href} className="nav-link">
+                  {item.label}
+                </a>
               ))}
+            </nav>
+          </div>
+
+          {/* SPLIT HERO */}
+          <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+
+            {/* LEFT: WHITE */}
+            <div style={{
+              flex: "0 0 58%",
+              background: "#ffffff",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              padding: "48px 72px 32px",
+            }}>
+              <p style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: "11px",
+                letterSpacing: "0.14em",
+                color: "#2563eb",
+                marginBottom: "20px",
+                textTransform: "uppercase",
+              }}>
+                StrykeFox Medical / Poseidon OS
+              </p>
+              <h1 style={{
+                fontFamily: "'Inter Tight', Inter, sans-serif",
+                fontSize: "clamp(34px, 3.8vw, 56px)",
+                fontWeight: 800,
+                lineHeight: 1.07,
+                color: "#0a0a0a",
+                marginBottom: "22px",
+                maxWidth: "540px",
+              }}>
+                Care-pathway infrastructure for modern healthcare recovery.
+              </h1>
+              <p style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "15px",
+                fontWeight: 500,
+                color: "#9ca3af",
+                marginBottom: "44px",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+              }}>
+                Verified. Documented. Delivered.
+              </p>
+              <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+                <a href="https://carepath.strykefox.com" style={{
+                  display: "inline-block",
+                  background: "#0a0a0a",
+                  color: "#ffffff",
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  padding: "14px 30px",
+                  textDecoration: "none",
+                  textTransform: "uppercase",
+                }}>
+                  Enter Platform
+                </a>
+                <a href="/platform" style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "12px",
+                  fontWeight: 600,
+                  color: "#6b7280",
+                  textDecoration: "none",
+                  letterSpacing: "0.06em",
+                }}>
+                  View all verticals &rarr;
+                </a>
+              </div>
+            </div>
+
+            {/* RIGHT: DARK NAVY */}
+            <div style={{
+              flex: "0 0 42%",
+              background: "#090E1C",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              padding: "32px 40px 32px 44px",
+            }}>
+              <p style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: "10px",
+                letterSpacing: "0.14em",
+                color: "#2563eb",
+                marginBottom: "20px",
+                textTransform: "uppercase",
+              }}>
+                Active Verticals
+              </p>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+                {platforms.map((p) => (
+                  <a key={p.name} href={p.href} className="platform-card">
+                    <span style={{
+                      fontFamily: "'Inter Tight', Inter, sans-serif",
+                      fontSize: "13px",
+                      fontWeight: 700,
+                      color: "#ffffff",
+                      marginBottom: "3px",
+                    }}>
+                      {p.name}
+                    </span>
+                    <span style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "11.5px",
+                      color: "rgba(255,255,255,0.42)",
+                      lineHeight: 1.55,
+                    }}>
+                      {p.desc}
+                    </span>
+                  </a>
+                ))}
+              </div>
+
+              <div style={{
+                display: "flex",
+                gap: "32px",
+                marginTop: "24px",
+                paddingTop: "20px",
+                borderTop: "1px solid rgba(255,255,255,0.06)",
+              }}>
+                {[
+                  { val: "6", label: "Verticals" },
+                  { val: "HIPAA", label: "Compliant" },
+                  { val: "2026", label: "Active" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <div style={{
+                      fontFamily: "'Inter Tight', Inter, sans-serif",
+                      fontSize: "17px",
+                      fontWeight: 800,
+                      color: "#ffffff",
+                    }}>
+                      {s.val}
+                    </div>
+                    <div style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "10px",
+                      color: "rgba(255,255,255,0.35)",
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                    }}>
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-        {/* RIGHT */}
-        <div style={{ flex: 1, background: "#090E1C", backgroundImage: "none", display: "flex", flexDirection: "column", padding: "120px 56px 0", overflow: "hidden" }}>
-          <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", color: "#2563eb", marginBottom: 40, textTransform: "uppercase" }} className="fade-up">Discover Our Platform</p>
-          <div style={{ flex: 1 }} className="fade-up">
-            {platforms.map((p) => (
-              <Link key={p.name} href={p.href} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "24px 0", borderTop: "1px solid rgba(255,255,255,0.07)", textDecoration: "none" }}>
-                <span style={{ fontWeight: 700, fontSize: 16, color: "#fff", minWidth: 180 }}>{p.name}</span>
-                <span style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textAlign: "right", maxWidth: 320 }}>{p.desc}</span>
-              </Link>
-            ))}
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }} />
-          </div>
-          <div style={{ marginTop: 40, height: 220, overflow: "hidden" }}>
-            <img src="/images/doctor-hero.jpg" alt="Clinical" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", display: "block" }} />
-          </div>
-        </div>
-      </section>
 
-      {/* SECTIONS 2-7 — PLATFORM VERTICALS */}
-      {verticals.map((v, i) => (
-        <section
-          key={v.name}
-          className="snap-section"
-          ref={(el) => { sectionRefs.current[i + 1] = el; }}
-          style={{ background: v.bg, backgroundImage: "none", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", padding: "0 10vw" }}
-        >
-          <div className="fade-up">
-            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", color: v.accent, marginBottom: 24, textTransform: "uppercase" }}>{v.tag}</p>
-            <h2 style={{ fontWeight: 900, fontSize: "clamp(3rem, 5.5vw, 5.5rem)", lineHeight: 1.05, color: v.color, maxWidth: 800, marginBottom: 32 }}>{v.headline}</h2>
-            <p style={{ fontSize: 18, color: v.color === "#fff" ? "rgba(255,255,255,0.55)" : "#555", maxWidth: 560, lineHeight: 1.7, marginBottom: 48 }}>{v.body}</p>
-            <Link href={v.href} style={{ display: "inline-block", background: v.color === "#fff" ? "#fff" : "#0a0a0a", color: v.color === "#fff" ? "#090E1C" : "#fff", padding: "16px 36px", fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textDecoration: "none", textTransform: "uppercase", borderRadius: 2 }}>
-              {v.cta} →
-            </Link>
-          </div>
-          {/* Section indicator */}
-          <div style={{ position: "absolute", bottom: 40, right: 56, fontSize: 11, color: v.color === "#fff" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)", letterSpacing: "0.1em", fontWeight: 600 }}>
-            0{i + 2} / 07
+          {/* DOCTRINE STRIP */}
+          <div style={{
+            background: "#0a0a0a",
+            display: "flex",
+            height: "110px",
+            flexShrink: 0,
+          }}>
+            {doctrine.map((d) => (
+              <div key={d.label} className="doctrine-col">
+                <div style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: "8px",
+                  marginBottom: "6px",
+                }}>
+                  <span style={{
+                    fontFamily: "'Inter Tight', Inter, sans-serif",
+                    fontSize: "12px",
+                    fontWeight: 800,
+                    color: "#ffffff",
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                  }}>
+                    {d.label}
+                  </span>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "10px",
+                    color: "#2563eb",
+                    letterSpacing: "0.1em",
+                  }}>
+                    {d.platform}
+                  </span>
+                </div>
+                <p style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "11px",
+                  color: "rgba(255,255,255,0.4)",
+                  lineHeight: 1.6,
+                  margin: 0,
+                }}>
+                  {d.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
-      ))}
-    </div>
+
+        {/* SECTIONS 2-7: VERTICALS */}
+        {verticals.map((v) => (
+          <section
+            key={v.name}
+            className="sfm-section"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: v.dark ? "#090E1C" : "#ffffff",
+              padding: "0 10vw",
+            }}
+          >
+            <div style={{ maxWidth: "720px", width: "100%" }}>
+              <p style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: "11px",
+                letterSpacing: "0.14em",
+                color: "#2563eb",
+                marginBottom: "28px",
+                textTransform: "uppercase",
+              }}>
+                {v.tag}
+              </p>
+              <h2 style={{
+                fontFamily: "'Inter Tight', Inter, sans-serif",
+                fontSize: "clamp(30px, 4vw, 52px)",
+                fontWeight: 800,
+                lineHeight: 1.08,
+                color: v.dark ? "#ffffff" : "#0a0a0a",
+                marginBottom: "24px",
+                maxWidth: "620px",
+              }}>
+                {v.headline}
+              </h2>
+              <p style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "17px",
+                lineHeight: 1.8,
+                color: v.dark ? "rgba(255,255,255,0.5)" : "#6b7280",
+                marginBottom: "44px",
+                maxWidth: "580px",
+              }}>
+                {v.body}
+              </p>
+              <a
+                href={v.href}
+                className="cta-link"
+                style={{
+                  color: v.dark ? "#ffffff" : "#0a0a0a",
+                  borderColor: v.dark ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.2)",
+                }}
+              >
+                {v.cta} &rarr;
+              </a>
+            </div>
+          </section>
+        ))}
+
+      </div>
+    </>
   );
 }
