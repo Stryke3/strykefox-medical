@@ -218,13 +218,6 @@ a {
   height: 42%;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.48), rgba(255,255,255,0)),
-    repeating-linear-gradient(
-      180deg,
-      rgba(255,255,255,0.0) 0px,
-      rgba(255,255,255,0.0) 13px,
-      rgba(255,255,255,0.22) 14px,
-      rgba(255,255,255,0.0) 16px
-    ),
     linear-gradient(180deg, rgba(255,255,255,0.22), rgba(91, 172, 224, 0.24));
   border-radius: 50% 50% 0 0 / 32% 32% 0 0;
   transform: scaleX(1.14);
@@ -239,14 +232,7 @@ a {
   height: 50%;
   background:
     radial-gradient(ellipse at 82% 32%, rgba(255, 242, 192, 0.86) 0 3%, rgba(255, 242, 192, 0.24) 4% 10%, transparent 18%),
-    linear-gradient(180deg, rgba(255,255,255,0.0) 0%, rgba(174, 218, 245, 0.2) 35%, rgba(235, 248, 255, 0.86) 100%),
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,0.24) 0px,
-      rgba(255,255,255,0.24) 1px,
-      rgba(16, 108, 184, 0.06) 2px,
-      rgba(16, 108, 184, 0.06) 9px
-    );
+    linear-gradient(180deg, rgba(255,255,255,0.0) 0%, rgba(174, 218, 245, 0.2) 35%, rgba(235, 248, 255, 0.86) 100%);
   clip-path: ellipse(78% 48% at 50% 20%);
   opacity: 0.82;
 }
@@ -636,8 +622,7 @@ a {
   inset: 0;
   background:
     linear-gradient(90deg, rgba(255,255,255,0.1), rgba(226, 242, 255, 0.36)),
-    linear-gradient(180deg, rgba(255,255,255,0.6), transparent),
-    repeating-linear-gradient(90deg, rgba(6,35,72,0.04) 0 1px, transparent 1px 104px);
+    linear-gradient(180deg, rgba(255,255,255,0.6), transparent);
 }
 
 .sfm-monitor {
@@ -731,10 +716,8 @@ a {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(10,102,194,0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10,102,194,0.12) 1px, transparent 1px),
     radial-gradient(circle at 70% 60%, transparent 0 60px, rgba(10,102,194,0.16) 61px 62px, transparent 63px);
-  background-size: 34px 34px, 34px 34px, auto;
+  background-size: auto;
   opacity: 0.44;
 }
 
@@ -813,9 +796,7 @@ a {
     radial-gradient(circle at 72% 44%, rgba(10,102,194,0.65) 0 2px, transparent 3px),
     radial-gradient(circle at 81% 64%, rgba(10,102,194,0.45) 0 2px, transparent 3px),
     linear-gradient(120deg, transparent 0 16%, rgba(10,102,194,0.13) 16.3%, transparent 16.8% 31%, rgba(10,102,194,0.1) 31.3%, transparent 31.8%),
-    linear-gradient(60deg, transparent 0 22%, rgba(10,102,194,0.16) 22.3%, transparent 22.8% 43%, rgba(10,102,194,0.1) 43.3%, transparent 43.8%),
-    repeating-linear-gradient(0deg, rgba(10,102,194,0.08) 0 1px, transparent 1px 26px),
-    repeating-linear-gradient(90deg, rgba(10,102,194,0.08) 0 1px, transparent 1px 26px);
+    linear-gradient(60deg, transparent 0 22%, rgba(10,102,194,0.16) 22.3%, transparent 22.8% 43%, rgba(10,102,194,0.1) 43.3%, transparent 43.8%);
   opacity: 0.75;
 }
 
@@ -888,8 +869,7 @@ a {
 
 .sfm-soc13-scene {
   background:
-    linear-gradient(90deg, rgba(255,255,255,0.74), rgba(255,255,255,0.08)),
-    repeating-linear-gradient(90deg, transparent 0 122px, rgba(6,35,72,0.04) 123px 124px);
+    linear-gradient(90deg, rgba(255,255,255,0.74), rgba(255,255,255,0.08));
 }
 
 .sfm-column {
@@ -2390,9 +2370,7 @@ a {
   inset: 0;
   background:
     radial-gradient(circle at 4% 97%, rgba(255, 106, 39, 0.72) 0 2px, transparent 3px),
-    radial-gradient(circle at 96% 96%, rgba(0, 191, 255, 0.68) 0 2px, transparent 3px),
-    repeating-linear-gradient(72deg, transparent 0 46px, rgba(255, 122, 60, 0.09) 47px, transparent 49px),
-    repeating-linear-gradient(110deg, transparent 0 52px, rgba(17, 205, 255, 0.08) 53px, transparent 55px);
+    radial-gradient(circle at 96% 96%, rgba(0, 191, 255, 0.68) 0 2px, transparent 3px);
   mask-image: linear-gradient(180deg, transparent 0%, #000 36%, #000 100%);
   opacity: 0.72;
 }
@@ -2872,3 +2850,15 @@ a {
     height: 62px;
   }
 }
+
+html, body { height: 100%; overflow: hidden; background: #fff; background-image: none; margin: 0; padding: 0; }
+
+.snap-container { height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+
+.snap-container::-webkit-scrollbar { display: none; }
+
+.snap-section { scroll-snap-align: start; height: 100vh; overflow: hidden; position: relative; }
+
+.fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+
+.fade-up.visible { opacity: 1; transform: translateY(0); }

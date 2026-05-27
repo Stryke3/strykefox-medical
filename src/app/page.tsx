@@ -1,453 +1,196 @@
-import "./homepage.css";
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
-/* ── NAV ─────────────────────────────────────────────────── */
+const navLinks = [
+  { label: "Providers", href: "/providers" },
+  { label: "Life Sciences", href: "/life-sciences" },
+  { label: "Platform", href: "/platform" },
+  { label: "Compliance", href: "/compliance" },
+  { label: "StrykePac Ex-Im SA", href: "/strykepac" },
+];
 
-function Nav() {
+const platforms = [
+  { name: "CarePath", desc: "Healthcare lineage and patient pathway coordination", href: "https://carepath.strykefox.com" },
+  { name: "SPEAR", desc: "Trident AI scoring, Poseidon storage, Aries deployment", href: "/platform" },
+  { name: "StrykePac Ex-Im SA", desc: "International gateway to world-class surgical technology", href: "/strykepac" },
+  { name: "NSI", desc: "Surgical device commercialization and OR workflow", href: "https://northstar.strykefox.com" },
+  { name: "SoC13", desc: "Compliance engine for documentation and billing", href: "https://soc13.strykefox.com" },
+];
+
+const doctrine = [
+  { label: "ACCELERATE", platform: "CAREPATH", desc: "Move patients through pre-op, surgery, recovery, and post-acute care with less friction." },
+  { label: "PREDICT", platform: "SPEAR", desc: "Score revenue risk, operational gaps, and deployment health from one connected loop." },
+  { label: "IDENTIFY", platform: "NSI", desc: "Surface device, pathway, and logistics opportunities around real operating room workflow." },
+  { label: "VALIDATE", platform: "SOC13", desc: "Keep documentation, claims, and audit trails aligned across regulated healthcare delivery." },
+];
+
+const verticals = [
+  {
+    name: "CarePath",
+    tag: "Healthcare Lineage",
+    headline: "Every patient. Every pathway. Every step.",
+    body: "CarePath coordinates pre-op through post-acute care — documenting, tracking, and closing gaps across the entire healthcare journey.",
+    cta: "Enter CarePath",
+    href: "https://carepath.strykefox.com",
+    bg: "#fff",
+    color: "#0a0a0a",
+    accent: "#2563eb",
+  },
+  {
+    name: "SPEAR",
+    tag: "Platform Intelligence",
+    headline: "Score risk before it becomes revenue loss.",
+    body: "Trident AI scoring, Poseidon storage, and Aries field deployment operate in one continuous intelligence loop — no handoffs, no gaps.",
+    cta: "Enter SPEAR",
+    href: "/platform",
+    bg: "#090E1C",
+    color: "#fff",
+    accent: "#2563eb",
+  },
+  {
+    name: "StrykePac Ex-Im SA",
+    tag: "Export & Import",
+    headline: "World-class surgical technology. Global reach.",
+    body: "Compliant cross-border distribution for DME, biologics, and implants — structured for real international OR procurement.",
+    cta: "Enter StrykePac",
+    href: "/strykepac",
+    bg: "#fff",
+    color: "#0a0a0a",
+    accent: "#2563eb",
+  },
+  {
+    name: "NSI",
+    tag: "Surgical Innovation",
+    headline: "From the OR floor to commercial launch.",
+    body: "NorthStar Innovations commercializes surgical devices and builds Ex-Im pathways designed around real operating room workflow.",
+    cta: "Enter NSI",
+    href: "https://northstar.strykefox.com",
+    bg: "#090E1C",
+    color: "#fff",
+    accent: "#2563eb",
+  },
+  {
+    name: "SoC13",
+    tag: "Compliance Engine",
+    headline: "Documentation that defends itself.",
+    body: "Automated HIPAA billing validation, audit trail generation, and regulatory compliance across every vertical — always current, always defensible.",
+    cta: "Enter SoC13",
+    href: "https://soc13.strykefox.com",
+    bg: "#fff",
+    color: "#0a0a0a",
+    accent: "#2563eb",
+  },
+];
+
+export default function Home() {
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll(".fade-up").forEach((el) => {
+              el.classList.add("visible");
+            });
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <nav className="nav">
-      <div className="nav-logo">
-        <Image src="/images/sfm-fox.jpeg" alt="StrykeFox Medical" width={36} height={36} />
-        <div className="nav-logo-text">
-          <span className="top">STRYKEFOX</span>
-          <span className="bot">MEDICAL</span>
-        </div>
-      </div>
-
-      <div className="nav-links">
-        <Link href="/carepath">CarePath</Link>
-        <Link href="/northstar-surgical-innovations">NSI</Link>
-        <a href="https://dashboard.strykefox.com" target="_blank" rel="noopener noreferrer">
-          SPEAR
-        </a>
-        <Link href="/soc13">SoC13</Link>
-      </div>
-
-      <Link href="/carepath" className="nav-cta">
-        Request Access
-      </Link>
-    </nav>
-  );
-}
-
-/* ── SPHERE ──────────────────────────────────────────────── */
-
-function Sphere() {
-  return (
-    <div className="sphere-wrap">
-      <div className="sphere-glow" />
-      <div className="sphere">
-        <div className="sphere-icon">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="32" r="24" stroke="rgba(255,255,255,0.22)" strokeWidth="1" />
-            <circle cx="32" cy="32" r="13" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" />
-            <circle cx="32" cy="32" r="4" fill="rgba(255,255,255,0.82)" />
-            <line x1="32" y1="4" x2="32" y2="60" stroke="rgba(255,255,255,0.28)" strokeWidth="1" />
-            <line x1="4" y1="32" x2="60" y2="32" stroke="rgba(255,255,255,0.28)" strokeWidth="1" />
-            <line x1="11" y1="11" x2="53" y2="53" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
-            <line x1="53" y1="11" x2="11" y2="53" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
-          </svg>
-        </div>
-      </div>
-      <Link href="/carepath" className="sphere-pill">
-        <span>Explore Platform</span>
-        <span className="pill-arrow">
-          <svg viewBox="0 0 9 9" fill="none" stroke="#fff" strokeWidth="1.6">
-            <path d="M2 7L7 2" />
-            <path d="M4 2h3v3" />
-          </svg>
-        </span>
-      </Link>
-    </div>
-  );
-}
-
-/* ── MOCKUPS ─────────────────────────────────────────────── */
-
-function Mockups() {
-  return (
-    <div className="mockup-row">
-      <div className="mockup-tablet">
-        <div className="mockup-bar">
-          <div className="dot" />
-          <span>CarePath — Patient Dashboard</span>
-        </div>
-        <div className="mockup-body">
-          <div className="mrow a" />
-          <div className="mrow b" />
-          <div className="mrow c" />
-          <div className="mrow g" />
-          <div className="mgrid">
-            <div className="mc x" />
-            <div className="mc" />
-            <div className="mc y" />
-            <div className="mc" />
-            <div className="mc" />
-            <div className="mc x" />
-            <div className="mc" />
-            <div className="mc y" />
-          </div>
-        </div>
-      </div>
-
-      <div className="mockup-phone">
-        <div className="phone-bar">SFM</div>
-        <div className="phone-body">
-          <div className="prow p" />
-          <div className="prow q" />
-          <div className="prow" />
-          <div className="prow" />
-          <div className="prow q" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ── HERO ────────────────────────────────────────────────── */
-
-function Hero() {
-  return (
-    <section className="hero">
-      {/* Left — dark photo panel */}
-      <div className="hero-left">
-        <div className="hero-left-photo">
-          <Image
-            src="/images/nurse-patient.jpg"
-            alt=""
-            fill
-            style={{ objectFit: "cover" }}
-            priority
-          />
-        </div>
-        <div className="hero-left-overlay" />
-
-        <div className="hero-left-inner">
-          <h1 className="hero-headline">
-            CarePath organizes the journey. Healthcare Lineage scales the platform.
-          </h1>
-
-          <div className="feature-grid">
-            <div className="feature-item">
-              <div className="feature-label">
-                Healthcare Lineage
-                <span className="sub">CarePath</span>
-              </div>
-              <div className="feature-body">
-                Pre-op through post-acute — every pathway documented, coordinated, and tracked.
-              </div>
-            </div>
-
-            <div className="feature-item">
-              <div className="feature-label">
-                Platform Intelligence
-                <span className="sub">SPEAR</span>
-              </div>
-              <div className="feature-body">
-                Trident AI scoring, Poseidon storage, and Aries field deployment in one loop.
-              </div>
-            </div>
-
-            <div className="feature-item">
-              <div className="feature-label">
-                Surgical Innovation
-                <span className="sub">NSI</span>
-              </div>
-              <div className="feature-body">
-                Device commercialization and Ex-Im pathways built for real OR workflow.
-              </div>
-            </div>
-
-            <div className="feature-item">
-              <div className="feature-label">
-                Compliance Engine
-                <span className="sub">SoC13</span>
-              </div>
-              <div className="feature-body">
-                Automated regulatory compliance and HIPAA billing validation across all verticals.
-              </div>
-            </div>
-          </div>
-
-          <div className="stats-row">
-            <div className="stat-item">
-              <strong>4</strong> active verticals
-            </div>
-            <div className="stat-item">
-              <strong>HIPAA</strong> compliant by design
-            </div>
-            <div className="stat-item">
-              <strong>2026</strong> fully deployed
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Right — blue-grey sphere panel */}
-      <div className="hero-right">
-        <div className="hero-right-bg" />
-        <div className="right-inner">
-          <p className="right-label">Platform Intelligence</p>
-          <Sphere />
-          <Mockups />
-          <Link href="/carepath" className="explore-cta">
-            Enter Platform
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8">
-              <path d="M2 12L12 2" />
-              <path d="M7 2h5v5" />
-            </svg>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ── PRODUCT SECTIONS ────────────────────────────────────── */
-
-type MetaItem = { label: string; text: string };
-
-type SectionProps = {
-  num: string;
-  eyebrow: string;
-  title: string;
-  lead: string;
-  meta: MetaItem[];
-  cta: string;
-  href: string;
-  img: string;
-  imgAlt: string;
-  reversed?: boolean;
-};
-
-function Section({ num, eyebrow, title, lead, meta, cta, href, img, imgAlt, reversed }: SectionProps) {
-  const isExternal = href.startsWith("http");
-
-  const copy = (
-    <div>
-      <div className="sec-eyebrow">{eyebrow}</div>
-      <h2 className="sec-h2">{title}</h2>
-      <p className="sec-lead">{lead}</p>
-      <div className="sec-meta">
-        {meta.map((m) => (
-          <div key={m.label}>
-            <strong>{m.label}</strong>
-            <p>{m.text}</p>
-          </div>
-        ))}
-      </div>
-      {isExternal ? (
-        <a href={href} className="sec-btn" target="_blank" rel="noopener noreferrer">
-          {cta} <span aria-hidden="true">→</span>
-        </a>
-      ) : (
-        <Link href={href} className="sec-btn">
-          {cta} <span aria-hidden="true">→</span>
+    <div className="snap-container">
+      {/* NAV — fixed over all sections */}
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, display: "flex", alignItems: "center", padding: "20px 48px", background: "rgba(255,255,255,0.9)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", marginRight: 48 }}>
+          <span style={{ fontWeight: 800, fontSize: 15, color: "#0a0a0a", letterSpacing: "0.05em" }}>STRYKEFOX</span>
+          <span style={{ fontWeight: 300, fontSize: 12, color: "#0a0a0a", letterSpacing: "0.1em" }}>MEDICAL</span>
         </Link>
-      )}
-    </div>
-  );
-
-  const visual = (
-    <div className="sec-visual">
-      <Image src={img} alt={imgAlt} fill style={{ objectFit: "cover" }} />
-      <span className="vis-label">{eyebrow}</span>
-    </div>
-  );
-
-  return (
-    <section className="section">
-      <span className="sec-num" aria-hidden="true">
-        {num}
-      </span>
-      <div className="sec-inner">
-        {reversed ? (
-          <>
-            {visual}
-            {copy}
-          </>
-        ) : (
-          <>
-            {copy}
-            {visual}
-          </>
-        )}
-      </div>
-    </section>
-  );
-}
-
-/* ── FOOTER ──────────────────────────────────────────────── */
-
-function Footer() {
-  return (
-    <footer className="footer">
-      <div className="footer-inner">
-        <div>
-          <div className="footer-eyebrow">Platform Operating System</div>
-          <h3 className="footer-h3">One OS. Four Verticals. Zero Compromise.</h3>
-          <p className="footer-body">
-            StrykeFox Medical builds precision infrastructure for regulated healthcare. CarePath,
-            NSI, SPEAR, and SoC13 operate as one integrated platform — engineered for clinical
-            reality, scaled by design.
-          </p>
+        <div style={{ display: "flex", gap: 32, flex: 1 }}>
+          {navLinks.map((l) => (
+            <Link key={l.label} href={l.href} style={{ fontSize: 12, fontWeight: 500, color: "#0a0a0a", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+              {l.label}
+            </Link>
+          ))}
         </div>
+        <Link href="/request-access" style={{ fontSize: 11, fontWeight: 600, color: "#0a0a0a", textDecoration: "none", letterSpacing: "0.1em", border: "1.5px solid #0a0a0a", padding: "10px 20px", textTransform: "uppercase" }}>
+          Request Access
+        </Link>
+      </nav>
 
-        <nav className="footer-links" aria-label="Footer navigation">
-          <Link href="/carepath">CarePath</Link>
-          <Link href="/northstar-surgical-innovations">Northstar Surgical Innovations</Link>
-          <a href="https://dashboard.strykefox.com" target="_blank" rel="noopener noreferrer">
-            SPEAR Dashboard
-          </a>
-          <Link href="/soc13">SoC13</Link>
-          <a href="https://www.adamwstryker.com" target="_blank" rel="noopener noreferrer">
-            Adam Stryker
-          </a>
-        </nav>
-      </div>
+      {/* SECTION 1 — HERO */}
+      <section className="snap-section" ref={(el) => { sectionRefs.current[0] = el; }} style={{ display: "flex" }}>
+        {/* LEFT */}
+        <div style={{ flex: "0 0 52%", background: "#fff", backgroundImage: "none", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
+          <div style={{ padding: "120px 56px 0", zIndex: 10, position: "relative" }} className="fade-up">
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", color: "#2563eb", marginBottom: 24, textTransform: "uppercase" }}>StrykeFox Medical</p>
+            <h1 style={{ fontWeight: 900, fontSize: "clamp(3.5rem, 6vw, 6.5rem)", lineHeight: 1.0, color: "#0a0a0a", margin: 0, maxWidth: 620 }}>
+              CarePath organizes the journey. Healthcare Lineage scales the platform.
+            </h1>
+          </div>
+          <div style={{ flex: 1, position: "relative", marginTop: 32 }}>
+            <img src="/images/doctor-hero.jpg" alt="Clinical" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
+            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", background: "rgba(255,255,255,0.92)", backdropFilter: "blur(8px)", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
+              {doctrine.map((d, i) => (
+                <div key={d.label} style={{ padding: "24px 20px", borderRight: i < 3 ? "1px solid rgba(0,0,0,0.08)" : "none" }}>
+                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", color: "#0a0a0a", margin: "0 0 4px" }}>{d.label}</p>
+                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", color: "#2563eb", margin: "0 0 10px" }}>{d.platform}</p>
+                  <p style={{ fontSize: 11, color: "#555", margin: 0, lineHeight: 1.5 }}>{d.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        {/* RIGHT */}
+        <div style={{ flex: 1, background: "#090E1C", backgroundImage: "none", display: "flex", flexDirection: "column", padding: "120px 56px 0", overflow: "hidden" }}>
+          <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", color: "#2563eb", marginBottom: 40, textTransform: "uppercase" }} className="fade-up">Discover Our Platform</p>
+          <div style={{ flex: 1 }} className="fade-up">
+            {platforms.map((p) => (
+              <Link key={p.name} href={p.href} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "24px 0", borderTop: "1px solid rgba(255,255,255,0.07)", textDecoration: "none" }}>
+                <span style={{ fontWeight: 700, fontSize: 16, color: "#fff", minWidth: 180 }}>{p.name}</span>
+                <span style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textAlign: "right", maxWidth: 320 }}>{p.desc}</span>
+              </Link>
+            ))}
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }} />
+          </div>
+          <div style={{ marginTop: 40, height: 220, overflow: "hidden" }}>
+            <img src="/images/doctor-hero.jpg" alt="Clinical" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", display: "block" }} />
+          </div>
+        </div>
+      </section>
 
-      <div className="footer-bottom">
-        <Image
-          src="/images/sfm-fox.jpeg"
-          alt="StrykeFox Medical"
-          width={22}
-          height={22}
-          className="fox"
-        />
-        <span>© 2026 StrykeFox Medical. All rights reserved.</span>
-      </div>
-    </footer>
-  );
-}
-
-/* ── PAGE ────────────────────────────────────────────────── */
-
-export default function HomePage() {
-  return (
-    <main className="sfx-homepage">
-      <Nav />
-      <Hero />
-
-      <Section
-        num="01"
-        eyebrow="CarePath"
-        title="Care that follows the patient."
-        lead="From pre-op to recovery, CarePath organizes healthcare lineage around documentation, coordination, and continuity — across every pathway and every site of care."
-        meta={[
-          {
-            label: "Healthcare Lineage",
-            text: "Every patient interaction captured and tracked across the full care continuum.",
-          },
-          {
-            label: "Pathway Coverage",
-            text: "Pre-Op, Surgical, Orthopedic, Spine, Biologics, Maternal, Wound, Post-Acute.",
-          },
-          {
-            label: "Bilingual Portals",
-            text: "Mommy Kit (English) and El Cuidado de Maternidad (Spanish) — built-in.",
-          },
-          {
-            label: "Integrated Billing",
-            text: "HIPAA-compliant documentation with EDI 837P/835 billing loop.",
-          },
-        ]}
-        cta="Explore CarePath"
-        href="/carepath"
-        img="/images/nurse-patient.jpg"
-        imgAlt="Nurse and patient — CarePath care coordination"
-      />
-
-      <Section
-        num="02"
-        eyebrow="Northstar Surgical Innovations"
-        title="Innovation built around the operating room."
-        lead="NSI advances surgical tools, device commercialization, Ex-Im pathways, and emerging medical technologies designed for real-world clinical flow — not adapted to it."
-        meta={[
-          {
-            label: "Device Commercialization",
-            text: "Surgical instrument pipeline from concept through regulatory clearance.",
-          },
-          {
-            label: "Ex-Im Pathways",
-            text: "International distribution frameworks and logistics for medical devices.",
-          },
-          {
-            label: "OR Integration",
-            text: "Tools engineered for surgical workflow with minimal adaptation overhead.",
-          },
-          {
-            label: "NSI Platform",
-            text: "Unified device and supply management across the full NSI portfolio.",
-          },
-        ]}
-        cta="Explore NSI"
-        href="/northstar-surgical-innovations"
-        img="/images/surgical-instruments.jpg"
-        imgAlt="Surgical instruments — Northstar Surgical Innovations"
-        reversed
-      />
-
-      <Section
-        num="03"
-        eyebrow="SPEAR"
-        title="Deployment intelligence behind the platform."
-        lead="SPEAR powers execution through integrated data capture, Trident AI revenue-risk scoring, field deployment, and continuous learning across the entire Stryker OS."
-        meta={[
-          {
-            label: "Poseidon Core",
-            text: "Central storage layer — patient records, billing data, and API routing.",
-          },
-          {
-            label: "Trident AI",
-            text: "Revenue risk scoring, predictive analytics, and intelligent aggregates.",
-          },
-          {
-            label: "Aries Deploy",
-            text: "Field-level deployment and automated health monitoring for the full stack.",
-          },
-          {
-            label: "EDI Integration",
-            text: "837P/835 billing loop via STEDI with real-time claim validation.",
-          },
-        ]}
-        cta="Explore SPEAR"
-        href="https://dashboard.strykefox.com"
-        img="/images/spear-hero.jpg"
-        imgAlt="SPEAR platform intelligence dashboard"
-      />
-
-      <Section
-        num="04"
-        eyebrow="SoC13"
-        title="Expansion by design."
-        lead="SoC13 aligns verticals, integrates capabilities, and reduces friction across healthcare delivery — the compliance engine that makes the platform scale without breaking."
-        meta={[
-          {
-            label: "Automated Compliance",
-            text: "Regulatory documentation generated at the point of care, not after.",
-          },
-          {
-            label: "Vertical Integration",
-            text: "Connecting CarePath, NSI, and SPEAR into one unified compliance layer.",
-          },
-          {
-            label: "Billing Validation",
-            text: "HIPAA-compliant EDI validation with real-time rejection handling.",
-          },
-          {
-            label: "Full Audit Trail",
-            text: "Complete lineage from patient intake through claim adjudication.",
-          },
-        ]}
-        cta="Explore SoC13"
-        href="/soc13"
-        img="/images/architectural-columns.jpg"
-        imgAlt="SoC13 compliance architecture"
-        reversed
-      />
-
-      <Footer />
-    </main>
+      {/* SECTIONS 2-6 — PLATFORM VERTICALS */}
+      {verticals.map((v, i) => (
+        <section
+          key={v.name}
+          className="snap-section"
+          ref={(el) => { sectionRefs.current[i + 1] = el; }}
+          style={{ background: v.bg, backgroundImage: "none", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", padding: "0 10vw" }}
+        >
+          <div className="fade-up">
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", color: v.accent, marginBottom: 24, textTransform: "uppercase" }}>{v.tag}</p>
+            <h2 style={{ fontWeight: 900, fontSize: "clamp(3rem, 5.5vw, 5.5rem)", lineHeight: 1.05, color: v.color, maxWidth: 800, marginBottom: 32 }}>{v.headline}</h2>
+            <p style={{ fontSize: 18, color: v.color === "#fff" ? "rgba(255,255,255,0.55)" : "#555", maxWidth: 560, lineHeight: 1.7, marginBottom: 48 }}>{v.body}</p>
+            <Link href={v.href} style={{ display: "inline-block", background: v.color === "#fff" ? "#fff" : "#0a0a0a", color: v.color === "#fff" ? "#090E1C" : "#fff", padding: "16px 36px", fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textDecoration: "none", textTransform: "uppercase", borderRadius: 2 }}>
+              {v.cta} →
+            </Link>
+          </div>
+          {/* Section indicator */}
+          <div style={{ position: "absolute", bottom: 40, right: 56, fontSize: 11, color: v.color === "#fff" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)", letterSpacing: "0.1em", fontWeight: 600 }}>
+            0{i + 2} / 06
+          </div>
+        </section>
+      ))}
+    </div>
   );
 }
