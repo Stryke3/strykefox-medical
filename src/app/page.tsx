@@ -15,7 +15,7 @@ const navLinks = [
 const platforms = [
   {
     name: "CarePath",
-    desc: "Care-pathway infrastructure — verification, documentation, fulfillment, POD, and billing-ready packet assembly.",
+    desc: "Recovery coordination infrastructure — verification, documentation, fulfillment, and billing-ready packet assembly.",
     href: "https://carepath.strykefox.com",
   },
   {
@@ -30,17 +30,17 @@ const platforms = [
   },
   {
     name: "Maternity",
-    desc: "Pregnancy and postpartum recovery coordination — bilingual, provider-directed, compliance-safe.",
+    desc: "Pregnancy and postpartum recovery coordination — provider-directed, compliance-safe, bilingual.",
     href: "https://mommycarekit.strykefox.com",
   },
   {
     name: "SoC13",
-    desc: "Automated HIPAA billing validation, audit trail generation, and regulatory compliance across all verticals.",
+    desc: "HIPAA billing validation, audit trail generation, and regulatory compliance across all verticals.",
     href: "https://soc13.strykefox.com",
   },
   {
     name: "StrykePac Ex-Im SA",
-    desc: "International gateway for DME, biologics, and implants — compliant cross-border distribution.",
+    desc: "Compliant cross-border distribution for DME, biologics, and implants — built for real OR procurement.",
     href: "/strykepac",
   },
 ];
@@ -49,12 +49,12 @@ const doctrine = [
   {
     label: "VERIFY",
     platform: "BENEFITS",
-    desc: "Eligibility confirmed before a single product moves. No surprises for the patient or the practice.",
+    desc: "Eligibility confirmed before a single product moves. Provider-directed. Documentation-backed.",
   },
   {
     label: "DOCUMENT",
     platform: "PATHWAY",
-    desc: "Documentation packets built to payer standards — provider-directed, compliance-forward.",
+    desc: "Documentation packets built to payer standards. Compliance-forward. Audit-ready at every step.",
   },
   {
     label: "COORDINATE",
@@ -64,16 +64,16 @@ const doctrine = [
   {
     label: "DELIVER",
     platform: "READY",
-    desc: "Billing-ready packet assembled and recovery continuity supported. Providers stay focused on care.",
+    desc: "Billing-ready packet assembled. Providers stay focused on care. CarePath manages the workflow.",
   },
 ];
 
 const verticals = [
   {
     name: "CarePath",
-    tag: "Healthcare Lineage",
+    tag: "Recovery Coordination Infrastructure",
     headline: "Between the clinical trigger and the patient's recovery environment.",
-    body: "CarePath verifies the need, documents the pathway, coordinates fulfillment, captures proof of delivery, and creates the billing-ready packet that allows recovery care to scale across providers, products, payers, and specialties. Providers stay focused on care. CarePath manages the operating workflow.",
+    body: "CarePath verifies the need, documents the pathway, coordinates fulfillment, captures proof of delivery, and assembles the billing-ready packet. Providers identify the clinical need. CarePath manages the operating workflow behind the scenes.",
     cta: "Enter CarePath",
     href: "https://carepath.strykefox.com",
     bg: "#fff",
@@ -84,7 +84,7 @@ const verticals = [
     name: "SPEAR",
     tag: "Platform Intelligence",
     headline: "Score risk before it becomes revenue loss.",
-    body: "Trident AI scoring, Poseidon storage, and Aries field deployment operate in one continuous intelligence loop — no handoffs, no gaps, no revenue left on the table. SPEAR gives the platform operational visibility across every active patient episode.",
+    body: "Trident AI scoring, Poseidon storage, and Aries field deployment operate in one continuous intelligence loop. No handoffs. No gaps. Operational visibility across every active patient episode and provider account.",
     cta: "Enter SPEAR",
     href: "/platform",
     bg: "#090E1C",
@@ -94,8 +94,8 @@ const verticals = [
   {
     name: "NorthStar Surgical",
     tag: "Surgical Innovation",
-    headline: "From the OR floor to commercial launch.",
-    body: "NorthStar Innovations commercializes surgical devices and builds Ex-Im pathways designed around real operating room workflow and case volume. Case-ready support. Documented recovery pathways. Built for spine surgeons, orthopedic surgeons, surgical practices, and ASCs.",
+    headline: "Device commercialization built for the OR floor.",
+    body: "NorthStar Innovations builds Ex-Im pathways and commercializes surgical devices around real operating room workflow and case volume. Case-ready support. Documentation discipline. Built for surgeons, surgical practices, and ASCs.",
     cta: "Enter NorthStar",
     href: "https://northstar.strykefox.com",
     bg: "#fff",
@@ -105,8 +105,8 @@ const verticals = [
   {
     name: "Maternity",
     tag: "CarePath Maternal",
-    headline: "Maternal recovery, coordinated correctly.",
-    body: "CarePath Maternal helps women's health clinics coordinate pregnancy and postpartum recovery products through provider-directed documentation, benefit verification, patient education, and fulfillment support. Bilingual. Compliance-forward. Available in English and Spanish.",
+    headline: "Maternal recovery coordination, done correctly.",
+    body: "CarePath Maternal helps women's health clinics coordinate pregnancy and postpartum recovery products through provider-directed documentation, benefit verification, and fulfillment support. Available in English and Spanish.",
     cta: "Enter Maternity",
     href: "https://mommycarekit.strykefox.com",
     bg: "#090E1C",
@@ -117,7 +117,7 @@ const verticals = [
     name: "SoC13",
     tag: "Compliance Engine",
     headline: "Documentation that defends itself.",
-    body: "Automated HIPAA billing validation, audit trail generation, and regulatory compliance across every vertical — always current, always billing-ready, always defensible. SoC13 keeps the platform aligned with payer policy, documentation standards, and reimbursement requirements.",
+    body: "Automated HIPAA billing validation, audit trail generation, and regulatory compliance across every vertical. Always current. Always billing-ready. Built to stay aligned with payer policy, documentation standards, and reimbursement requirements.",
     cta: "Enter SoC13",
     href: "https://soc13.strykefox.com",
     bg: "#fff",
@@ -127,8 +127,8 @@ const verticals = [
   {
     name: "StrykePac Ex-Im SA",
     tag: "Export & Import",
-    headline: "World-class surgical technology. Global reach.",
-    body: "Compliant cross-border distribution for DME, biologics, and implants — structured for real international OR procurement with documentation and compliance built in from day one. StrykePac gives manufacturers a serious local operating partner built for regulated healthcare execution.",
+    headline: "Surgical technology with global distribution infrastructure.",
+    body: "Compliant cross-border distribution for DME, biologics, and implants — structured for real international OR procurement. Documentation and compliance built in from day one. A serious operating partner for regulated healthcare execution.",
     cta: "Enter StrykePac",
     href: "/strykepac",
     bg: "#090E1C",
