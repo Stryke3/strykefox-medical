@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const platformLinks = [
@@ -58,7 +59,18 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="sfm-hero">
+    <section className="sfm-hero sfm-hero-with-imagery">
+      <div className="sfm-hero-water" />
+      <div className="sfm-hero-sun" />
+      <div className="sfm-hero-techgrid" />
+      <div className="sfm-hero-photo-stack" aria-hidden="true">
+        <div className="sfm-hero-photo sfm-hero-phone-photo">
+          <Image src="/images/hero-healthcare.jpg" alt="" fill priority sizes="(max-width: 900px) 86vw, 480px" />
+        </div>
+        <div className="sfm-hero-photo sfm-hero-surgery-photo">
+          <Image src="/images/surgical-hero.jpg" alt="" fill sizes="(max-width: 900px) 62vw, 330px" />
+        </div>
+      </div>
       <Header />
 
       <div className="sfm-hero-water" />
