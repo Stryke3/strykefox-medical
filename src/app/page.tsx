@@ -12,26 +12,67 @@ const navLinks = [
 ];
 
 const platforms = [
-  { name: "CarePath", desc: "Healthcare lineage and patient pathway coordination", href: "https://carepath.strykefox.com" },
-  { name: "SPEAR", desc: "Trident AI scoring, Poseidon storage, Aries deployment", href: "/platform" },
-  { name: "StrykePac Ex-Im SA", desc: "International gateway to world-class surgical technology", href: "/strykepac" },
-  { name: "NSI", desc: "Surgical device commercialization and OR workflow", href: "https://northstar.strykefox.com" },
-  { name: "SoC13", desc: "Compliance engine for documentation and billing", href: "https://soc13.strykefox.com" },
+  {
+    name: "CarePath",
+    tag: "Healthcare Lineage",
+    desc: "Pre-op through post-acute DME coordination, delivery, billing, and benefits verification — patients never receive a bill.",
+    href: "https://carepath.strykefox.com",
+  },
+  {
+    name: "SPEAR",
+    tag: "Platform Intelligence",
+    desc: "Trident AI scoring, Poseidon storage, and Aries field deployment — revenue risk, operational gaps, and deployment health in one loop.",
+    href: "/platform",
+  },
+  {
+    name: "StrykePac Ex-Im SA",
+    tag: "Export & Import",
+    desc: "International gateway for DME, biologics, and implants — compliant cross-border distribution built for real OR procurement.",
+    href: "/strykepac",
+  },
+  {
+    name: "NSI",
+    tag: "Surgical Innovation",
+    desc: "NorthStar device commercialization and Ex-Im pathways — built around real operating room workflow and surgical case volume.",
+    href: "https://northstar.strykefox.com",
+  },
+  {
+    name: "SoC13",
+    tag: "Compliance Engine",
+    desc: "Automated HIPAA billing validation, audit trail generation, and claims documentation across every vertical — always current, always defensible.",
+    href: "https://soc13.strykefox.com",
+  },
 ];
 
 const doctrine = [
-  { label: "ACCELERATE", platform: "CAREPATH", desc: "Move patients through pre-op, surgery, recovery, and post-acute care with less friction." },
-  { label: "PREDICT", platform: "SPEAR", desc: "Score revenue risk, operational gaps, and deployment health from one connected loop." },
-  { label: "IDENTIFY", platform: "NSI", desc: "Surface device, pathway, and logistics opportunities around real operating room workflow." },
-  { label: "VALIDATE", platform: "SOC13", desc: "Keep documentation, claims, and audit trails aligned across regulated healthcare delivery." },
+  {
+    label: "ACCELERATE",
+    platform: "CAREPATH",
+    desc: "Move patients through pre-op, surgery, recovery, and post-acute care. Benefits verified. Delivered. No patient bill.",
+  },
+  {
+    label: "PREDICT",
+    platform: "SPEAR",
+    desc: "Score revenue risk, operational gaps, and deployment health from one connected intelligence loop.",
+  },
+  {
+    label: "IDENTIFY",
+    platform: "NSI",
+    desc: "Surface device, pathway, and logistics opportunities around real operating room and surgical case workflow.",
+  },
+  {
+    label: "VALIDATE",
+    platform: "SOC13",
+    desc: "Keep documentation, claims, and audit trails aligned across regulated healthcare delivery — defensible at every level.",
+  },
 ];
 
 const verticals = [
   {
     name: "CarePath",
     tag: "Healthcare Lineage",
-    headline: "Every patient. Every pathway. Every step.",
-    body: "CarePath coordinates pre-op through post-acute care — documenting, tracking, and closing gaps across the entire healthcare journey.",
+    headline: "Every patient. Every pathway. Zero balance bills.",
+    body: "CarePath handles all DME coordination, pre-op and post-op delivery, documentation, and billing. We verify patient benefits upfront — patients do not receive a bill from us. Your team sends the patient. We handle everything else.",
     cta: "Enter CarePath",
     href: "https://carepath.strykefox.com",
     bg: "#fff",
@@ -42,7 +83,7 @@ const verticals = [
     name: "SPEAR",
     tag: "Platform Intelligence",
     headline: "Score risk before it becomes revenue loss.",
-    body: "Trident AI scoring, Poseidon storage, and Aries field deployment operate in one continuous intelligence loop — no handoffs, no gaps.",
+    body: "Trident AI scoring, Poseidon storage, and Aries field deployment operate in one continuous intelligence loop — no handoffs, no gaps, no revenue left on the table.",
     cta: "Enter SPEAR",
     href: "/platform",
     bg: "#090E1C",
@@ -53,7 +94,7 @@ const verticals = [
     name: "StrykePac Ex-Im SA",
     tag: "Export & Import",
     headline: "World-class surgical technology. Global reach.",
-    body: "Compliant cross-border distribution for DME, biologics, and implants — structured for real international OR procurement.",
+    body: "Compliant cross-border distribution for DME, biologics, and implants — structured for real international OR procurement with documentation and compliance built in.",
     cta: "Enter StrykePac",
     href: "/strykepac",
     bg: "#fff",
@@ -64,7 +105,7 @@ const verticals = [
     name: "NSI",
     tag: "Surgical Innovation",
     headline: "From the OR floor to commercial launch.",
-    body: "NorthStar Innovations commercializes surgical devices and builds Ex-Im pathways designed around real operating room workflow.",
+    body: "NorthStar Innovations commercializes surgical devices and builds Ex-Im pathways designed around real operating room case volume and workflow — not a brochure.",
     cta: "Enter NSI",
     href: "https://northstar.strykefox.com",
     bg: "#090E1C",
@@ -75,7 +116,7 @@ const verticals = [
     name: "SoC13",
     tag: "Compliance Engine",
     headline: "Documentation that defends itself.",
-    body: "Automated HIPAA billing validation, audit trail generation, and regulatory compliance across every vertical — always current, always defensible.",
+    body: "Automated HIPAA billing validation, audit trail generation, and regulatory compliance across every vertical — always current, always billing-ready, always defensible.",
     cta: "Enter SoC13",
     href: "https://soc13.strykefox.com",
     bg: "#fff",
