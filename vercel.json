@@ -6,10 +6,78 @@
       "use": "@vercel/next"
     }
   ],
-  "routes": [
+  "redirects": [
     {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/northstar-surgical",
+      "destination": "/northstar-surgical-innovations",
+      "permanent": true
+    },
+    {
+      "source": "/northstar-surgical/:path*",
+      "destination": "/northstar-surgical-innovations",
+      "permanent": true
+    },
+    {
+      "source": "/nsi",
+      "destination": "/northstar-surgical-innovations",
+      "permanent": true
+    },
+    {
+      "source": "/nsi/:path*",
+      "destination": "/northstar-surgical-innovations",
+      "permanent": true
+    },
+    {
+      "source": "/carepath",
+      "destination": "https://carepath.strykefox.com",
+      "permanent": true
+    },
+    {
+      "source": "/carepath/:path*",
+      "destination": "https://carepath.strykefox.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/mommy-care-kit",
+      "destination": "https://mommycarekit.strykefox.com",
+      "permanent": true
+    },
+    {
+      "source": "/mommy-care-kit/:path*",
+      "destination": "https://mommycarekit.strykefox.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/el-kit-de-cuidado",
+      "destination": "https://elkitdecuidado.strykefox.com",
+      "permanent": true
+    },
+    {
+      "source": "/el-kit-de-cuidado/:path*",
+      "destination": "https://elkitdecuidado.strykefox.com/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/northstar/:path*",
+      "destination": "https://sfm-northstar.vercel.app/:path*"
+    },
+    {
+      "source": "/strykepac/:path*",
+      "destination": "https://sfm-strykepac.vercel.app/:path*"
+    },
+    {
+      "source": "/soc13/:path*",
+      "destination": "https://sfm-soc13.vercel.app/:path*"
+    },
+    {
+      "source": "/mommycare/:path*",
+      "destination": "https://sfm-mommykit.vercel.app/:path*"
+    },
+    {
+      "source": "/elcuidadomommy/:path*",
+      "destination": "https://sfm-elcuidadomommy.vercel.app/:path*"
     }
   ]
 }

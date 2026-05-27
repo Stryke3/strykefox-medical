@@ -1,0 +1,29 @@
+import type { DefaultSession } from "next-auth"
+
+declare module "next-auth" {
+  interface Session {
+    user: DefaultSession["user"] & {
+      id?: string
+      role?: "admin" | "billing" | "rep" | "intake" | "executive" | "system"
+      accessToken?: string
+      orgId?: string
+      permissions?: string[]
+    }
+  }
+
+  interface User {
+    role?: "admin" | "billing" | "rep" | "intake" | "executive" | "system"
+    accessToken?: string
+    orgId?: string
+    permissions?: string[]
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    role?: "admin" | "billing" | "rep" | "intake" | "executive" | "system"
+    accessToken?: string
+    orgId?: string
+    permissions?: string[]
+  }
+}

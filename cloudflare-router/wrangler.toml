@@ -1,0 +1,17 @@
+name = "strykefox-edge-router"
+main = "src/index.js"
+compatibility_date = "2026-05-22"
+
+routes = [
+  { pattern = "strykefox.com/*", zone_name = "strykefox.com" },
+  { pattern = "www.strykefox.com/*", zone_name = "strykefox.com" },
+  { pattern = "strykefox.com/carepath*", zone_name = "strykefox.com" },
+  { pattern = "strykefox.com/mommy-care-kit*", zone_name = "strykefox.com" },
+  { pattern = "strykefox.com/mommycare*", zone_name = "strykefox.com" },
+  { pattern = "strykefox.com/northstar*", zone_name = "strykefox.com" },
+  { pattern = "strykefox.com/nsi*", zone_name = "strykefox.com" },
+  { pattern = "www.strykefox.com/carepath*", zone_name = "strykefox.com" },
+  { pattern = "www.strykefox.com/mommy-care-kit*", zone_name = "strykefox.com" },
+  { pattern = "www.strykefox.com/mommycare*", zone_name = "strykefox.com" },
+  { pattern = "www.strykefox.com/northstar*", zone_name = "strykefox.com" }
+]
