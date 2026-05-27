@@ -2862,3 +2862,186 @@ html, body { height: 100%; overflow: hidden; background: #fff; background-image:
 .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
 
 .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ========================================================
+   MOBILE RESPONSIVE — strykefox.com homepage
+   Breakpoint: <=768px
+   ======================================================== */
+@media (max-width: 768px) {
+  /* NAV */
+  .nav-inner { padding: 0 1.25rem; }
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+
+  .snap-container > nav {
+    padding: 14px 18px !important;
+    gap: 12px !important;
+  }
+
+  .snap-container > nav > a:first-child {
+    margin-right: 0 !important;
+    gap: 8px !important;
+    flex: 1 1 auto !important;
+  }
+
+  .snap-container > nav > a:first-child span:first-child {
+    font-size: 13px !important;
+  }
+
+  .snap-container > nav > a:first-child span:last-child {
+    font-size: 10px !important;
+  }
+
+  .snap-container > nav > div {
+    display: none !important;
+  }
+
+  .snap-container > nav > a:last-child {
+    padding: 8px 12px !important;
+    font-size: 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* HERO */
+  .hero-section { padding: 6rem 1.25rem 3rem; min-height: auto; }
+  .hero-logo-img { width: 120px; height: 120px; }
+  .hero-sub { font-size: 0.85rem; }
+  .hero-cta-group { flex-direction: column; align-items: stretch; }
+  .hero-cta { text-align: center; justify-content: center; padding: 0.85rem 1.25rem; }
+
+  .snap-section:first-of-type {
+    display: grid !important;
+    grid-template-rows: 58vh 42vh !important;
+    height: 100svh !important;
+    min-height: 100svh !important;
+  }
+
+  .snap-section:first-of-type > div:first-child,
+  .snap-section:first-of-type > div:last-child {
+    flex: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .snap-section:first-of-type > div:first-child {
+    display: grid !important;
+    grid-template-rows: auto 1fr !important;
+  }
+
+  .snap-section:first-of-type > div:first-child > div:first-child {
+    padding: 86px 20px 0 !important;
+  }
+
+  .snap-section:first-of-type h1 {
+    font-size: clamp(2.05rem, 12vw, 3.1rem) !important;
+    line-height: 0.96 !important;
+    max-width: 100% !important;
+  }
+
+  .snap-section:first-of-type > div:first-child > div:nth-child(2) {
+    margin-top: 18px !important;
+    min-height: 0 !important;
+  }
+
+  .snap-section:first-of-type > div:first-child > div:nth-child(2) > div {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .snap-section:first-of-type > div:first-child > div:nth-child(2) > div > div {
+    padding: 10px 12px !important;
+  }
+
+  .snap-section:first-of-type > div:first-child > div:nth-child(2) > div p:last-child {
+    display: none !important;
+  }
+
+  .snap-section:first-of-type > div:last-child {
+    padding: 24px 20px 0 !important;
+  }
+
+  .snap-section:first-of-type > div:last-child > p {
+    margin-bottom: 10px !important;
+  }
+
+  .snap-section:first-of-type > div:last-child a {
+    padding: 12px 0 !important;
+    gap: 14px !important;
+  }
+
+  .snap-section:first-of-type > div:last-child a span:first-child {
+    min-width: 112px !important;
+    font-size: 14px !important;
+  }
+
+  .snap-section:first-of-type > div:last-child a span:last-child {
+    max-width: 170px !important;
+    font-size: 11px !important;
+  }
+
+  .snap-section:first-of-type > div:last-child > div:last-child {
+    display: none !important;
+  }
+
+  /* CHAPTER SECTIONS (CarePath / NSI / SPEAR / SoC13) */
+  .chapter-section { padding: 3rem 1.25rem; }
+  .chapter-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .chapter-image { min-height: 200px; order: -1; }
+  .chapter-alt .chapter-image { order: 0; }
+  .chapter-body { max-width: 100%; }
+  .chapter-title { font-size: clamp(1.5rem, 6vw, 2rem); }
+
+  .snap-section:not(:first-of-type) {
+    height: 100svh !important;
+    min-height: 100svh !important;
+    padding: 0 1.35rem !important;
+  }
+
+  .snap-section:not(:first-of-type) .fade-up {
+    max-width: 100% !important;
+  }
+
+  .snap-section:not(:first-of-type) h2 {
+    font-size: clamp(2.15rem, 12vw, 3.3rem) !important;
+    line-height: 1 !important;
+    margin-bottom: 22px !important;
+  }
+
+  .snap-section:not(:first-of-type) p {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+
+  .snap-section:not(:first-of-type) a {
+    padding: 13px 24px !important;
+    font-size: 11px !important;
+  }
+
+  .snap-section:not(:first-of-type) > div:last-child {
+    right: 20px !important;
+    bottom: 22px !important;
+  }
+
+  /* MATERNITY */
+  .maternity-section { padding: 3rem 1.25rem; }
+
+  /* FOUNDER SECTION */
+  .founder-section { padding: 3rem 1.25rem; }
+  .founder-grid { grid-template-columns: 1fr; }
+  .founder-card { padding: 1.75rem; }
+
+  /* PLATFORM NAV SECTION */
+  .platform-nav-section { padding: 2rem 1.25rem; }
+  .platform-nav-grid { flex-direction: column; gap: 0.75rem; }
+
+  /* FOOTER */
+  .home-footer { padding: 2rem 1.25rem; }
+  .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .footer-three-col { grid-template-columns: 1fr; text-align: center; gap: 0.75rem; }
+  .footer-right-col { text-align: center; }
+  .footer-center-col { text-align: center; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 0.5rem; }
+
+  /* SUBPAGE HERO */
+  .subpage-hero { padding: 5rem 1.25rem 3rem; }
+  .subpage-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+}
