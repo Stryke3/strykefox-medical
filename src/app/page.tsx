@@ -3,7 +3,7 @@ import Link from "next/link";
 const platformLinks = [
   { label: "CarePath", href: "/carepath" },
   { label: "Northstar Surgical Innovations", href: "/northstar-surgical-innovations" },
-  { label: "SPEAR", href: "https://dashboard.strykefox.com" },
+  { label: "SPEAR Login", href: "https://dashboard.strykefox.com" },
   { label: "Sensars", href: "/sensars" },
   { label: "SoC13", href: "/soc13" },
 ];
