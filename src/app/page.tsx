@@ -1,345 +1,203 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
-const platformLinks = [
-  { label: "CarePath", href: "/carepath" },
-  { label: "Northstar Surgical Innovations", href: "/northstar-surgical-innovations" },
-  { label: "SPEAR Login", href: "https://dashboard.strykefox.com" },
-  { label: "Sensars", href: "/sensars" },
-  { label: "SoC13", href: "/soc13" },
+const navLinks = [
+  { label: "Providers", href: "/providers" },
+  { label: "Life Sciences", href: "/life-sciences" },
+  { label: "Platform", href: "/platform" },
+  { label: "Compliance", href: "/compliance" },
+  { label: "StrykePac Ex-Im SA", href: "/strykepac" },
 ];
 
-const carePathTags = [
-  "Pre-Op",
-  "Surgical",
-  "Orthopedic",
-  "Spine",
-  "Biologics",
-  "Maternal",
-  "Mobility",
-  "Wound",
-  "El Cuidado",
-  "Mommy Kit",
-  "Post-Acute",
+const platforms = [
+  { name: "CarePath", desc: "Healthcare lineage and patient pathway coordination", href: "https://carepath.strykefox.com" },
+  { name: "SPEAR", desc: "Trident AI scoring, Poseidon storage, Aries deployment", href: "/platform" },
+  { name: "StrykePac Ex-Im SA", desc: "International gateway to world-class surgical technology", href: "/strykepac" },
+  { name: "NSI", desc: "Surgical device commercialization and OR workflow", href: "https://northstar.strykefox.com" },
+  { name: "SoC13", desc: "Compliance engine for documentation and billing", href: "https://soc13.strykefox.com" },
 ];
 
-type ChapterProps = {
-  id: string;
-  eyebrow: string;
-  title: string;
-  body: string;
-  cta: string;
-  href: string;
-  visual: "carepath" | "nsi" | "spear" | "sensars" | "soc13";
-  tags?: string[];
-  support?: string;
-};
+const doctrine = [
+  { label: "ACCELERATE", platform: "CAREPATH", desc: "Move patients through pre-op, surgery, recovery, and post-acute care with less friction." },
+  { label: "PREDICT", platform: "SPEAR", desc: "Score revenue risk, operational gaps, and deployment health from one connected loop." },
+  { label: "IDENTIFY", platform: "NSI", desc: "Surface device, pathway, and logistics opportunities around real operating room workflow." },
+  { label: "VALIDATE", platform: "SOC13", desc: "Keep documentation, claims, and audit trails aligned across regulated healthcare delivery." },
+];
 
-function Header() {
+const verticals = [
+  {
+    name: "CarePath",
+    tag: "Healthcare Lineage",
+    headline: "Every patient. Every pathway. Every step.",
+    body: "CarePath coordinates pre-op through post-acute care — documenting, tracking, and closing gaps across the entire healthcare journey.",
+    cta: "Enter CarePath",
+    href: "https://carepath.strykefox.com",
+    image: "/images/nurse-patient.jpg",
+    bg: "#fff",
+    color: "#0a0a0a",
+    accent: "#2563eb",
+  },
+  {
+    name: "SPEAR",
+    tag: "Platform Intelligence",
+    headline: "Score risk before it becomes revenue loss.",
+    body: "Trident AI scoring, Poseidon storage, and Aries field deployment operate in one continuous intelligence loop — no handoffs, no gaps.",
+    cta: "Enter SPEAR",
+    href: "/platform",
+    image: "/images/spear-hero.jpg",
+    bg: "#090E1C",
+    color: "#fff",
+    accent: "#2563eb",
+  },
+  {
+    name: "StrykePac Ex-Im SA",
+    tag: "Export & Import",
+    headline: "World-class surgical technology. Global reach.",
+    body: "Compliant cross-border distribution for DME, biologics, and implants — structured for real international OR procurement.",
+    cta: "Enter StrykePac",
+    href: "/strykepac",
+    image: "/images/strykepac.png",
+    bg: "#fff",
+    color: "#0a0a0a",
+    accent: "#2563eb",
+  },
+  {
+    name: "NSI",
+    tag: "Surgical Innovation",
+    headline: "From the OR floor to commercial launch.",
+    body: "NorthStar Innovations commercializes surgical devices and builds Ex-Im pathways designed around real operating room workflow.",
+    cta: "Enter NSI",
+    href: "https://northstar.strykefox.com",
+    image: "/images/surgical-instruments.jpg",
+    bg: "#090E1C",
+    color: "#fff",
+    accent: "#2563eb",
+  },
+  {
+    name: "SoC13",
+    tag: "Compliance Engine",
+    headline: "Documentation that defends itself.",
+    body: "Automated HIPAA billing validation, audit trail generation, and regulatory compliance across every vertical — always current, always defensible.",
+    cta: "Enter SoC13",
+    href: "https://soc13.strykefox.com",
+    image: "/images/architectural-columns.jpg",
+    bg: "#fff",
+    color: "#0a0a0a",
+    accent: "#2563eb",
+  },
+];
+
+export default function Home() {
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll(".fade-up").forEach((el) => {
+              el.classList.add("visible");
+            });
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <header className="sfm-header">
-      <Link href="/" className="sfm-header-logo" aria-label="StrykeFox Medical home">
-        <span className="sfm-fox-mark" />
-        <span className="sfm-header-wordmark">
-          <span>STRYKEFOX</span>
-          <small>MEDICAL</small>
-        </span>
-      </Link>
-
-      <nav className="sfm-nav" aria-label="Primary navigation">
-        {platformLinks.map((item) => (
-          <Link key={item.label} href={item.href}>
-            {item.label}
-          </Link>
-        ))}
-      </nav>
-    </header>
-  );
-}
-
-function Hero() {
-  return (
-    <section className="sfm-hero">
-      <Header />
-
-      <div className="sfm-hero-water" />
-      <div className="sfm-hero-techgrid" />
-      <div className="sfm-hero-sun" />
-
-      <div className="sfm-hero-content">
-        <div className="sfm-primary-logo" aria-label="StrykeFox Medical">
-          <span className="sfm-primary-fox" />
-          <div className="sfm-primary-wordmark">
-            <span>STRY<span>K</span>EFOX</span>
-            <small>MEDICAL</small>
-          </div>
-        </div>
-
-        <h1>Healthcare infrastructure, engineered for what comes next.</h1>
-
-        <p>CarePath. NSI. SPEAR. One operating platform.</p>
-
-        <Link href="/carepath" className="sfm-hero-button">
-          Enter Platform
-          <span aria-hidden="true">›</span>
+    <div className="snap-container">
+      {/* NAV — fixed over all sections */}
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, display: "flex", alignItems: "center", padding: "20px 48px", background: "rgba(255,255,255,0.9)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", marginRight: 48 }}>
+          <span style={{ fontWeight: 800, fontSize: 15, color: "#0a0a0a", letterSpacing: "0.05em" }}>STRYKEFOX</span>
+          <span style={{ fontWeight: 300, fontSize: 12, color: "#0a0a0a", letterSpacing: "0.1em" }}>MEDICAL</span>
         </Link>
-      </div>
-    </section>
-  );
-}
-
-function ChapterSection({
-  id,
-  eyebrow,
-  title,
-  body,
-  cta,
-  href,
-  visual,
-  tags,
-  support,
-}: ChapterProps) {
-  return (
-    <section id={id} className={`sfm-chapter sfm-chapter-${visual}`}>
-      <div className="sfm-chapter-inner">
-        <div className="sfm-chapter-copy">
-          <div className="sfm-eyebrow">
-            {eyebrow}
-            <span />
-          </div>
-
-          <h2>{title}</h2>
-          <p>{body}</p>
-
-          {tags?.length ? (
-            <div className="sfm-tags" aria-label={`${title} pathway tags`}>
-              {tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
-          ) : null}
-
-          {support ? (
-            <div className="sfm-support-line">
-              <span className="sfm-mini-trident" />
-              <span>{support}</span>
-            </div>
-          ) : null}
-
-          <a
-            href={href}
-            className="sfm-text-link"
-            {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-          >
-            {cta}
-            <span aria-hidden="true">›</span>
-          </a>
-        </div>
-
-        <div className={`sfm-visual sfm-visual-${visual}`}>
-          <div className="sfm-visual-overlay" />
-          {visual === "carepath" && (
-            <div className="sfm-clinical-scene">
-              <div className="sfm-monitor">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="sfm-patient" />
-              <div className="sfm-clinician" />
-            </div>
-          )}
-
-          {visual === "nsi" && (
-            <div className="sfm-nsi-scene">
-              <span className="sfm-northstar-watermark">✦</span>
-              <div className="sfm-blueprint-grid" />
-              <div className="sfm-instrument sfm-instrument-main" />
-              <div className="sfm-instrument sfm-instrument-small one" />
-              <div className="sfm-instrument sfm-instrument-small two" />
-            </div>
-          )}
-
-          {visual === "spear" && (
-            <div className="sfm-spear-scene">
-              <div className="sfm-data-field" />
-              <div className="sfm-trident-mark">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="sfm-node n1" />
-              <div className="sfm-node n2" />
-              <div className="sfm-node n3" />
-              <div className="sfm-node n4" />
-            </div>
-          )}
-
-          {visual === "sensars" && (
-            <div className="sfm-sensars-scene">
-              <div className="sfm-sensars-overlay" />
-            </div>
-          )}
-
-          {visual === "soc13" && (
-            <div className="sfm-soc13-scene">
-              <div className="sfm-column c1" />
-              <div className="sfm-column c2" />
-              <div className="sfm-column c3" />
-              <div className="sfm-soc13-medallion">XIII</div>
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Leadership() {
-  return (
-    <section className="sfm-leadership">
-      <div className="sfm-section-label">
-        <span />
-        PLATFORM LEADERSHIP
-        <span />
-      </div>
-
-      <div className="sfm-leadership-grid">
-        <article className="sfm-founder-card">
-          <div className="sfm-founder-photo sfm-founder-adam">
-            <span>AS</span>
-          </div>
-          <div>
-            <h3>Adam Stryker</h3>
-            <p>Platform Architect · Author</p>
-            <a
-              href="https://www.adamwstryker.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.35rem",
-                border: "1px solid currentColor",
-                padding: "0.35rem 0.75rem",
-                borderRadius: "4px",
-                fontSize: "0.78rem",
-                fontWeight: 600,
-                letterSpacing: "0.05em",
-                textDecoration: "none",
-                marginTop: "0.5rem",
-              }}
-            >
-              ↗ adamwstryker.com
-            </a>
-          </div>
-        </article>
-
-        <article className="sfm-founder-card">
-          <div className="sfm-founder-photo sfm-founder-ben">
-            <span>BF</span>
-          </div>
-          <div>
-            <h3>Ben Fox</h3>
-            <p>Co-Founder / Market Development</p>
-          </div>
-        </article>
-      </div>
-    </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="sfm-footer">
-      <div className="sfm-footer-main">
-        <Link href="/" className="sfm-footer-logo" aria-label="StrykeFox Medical home">
-          <span className="sfm-fox-mark" />
-          <span className="sfm-header-wordmark">
-            <span>STRYKEFOX</span>
-            <small>MEDICAL</small>
-          </span>
-        </Link>
-
-        <nav className="sfm-footer-nav" aria-label="Footer navigation">
-          {platformLinks.map((item) => (
-            <Link key={item.label} href={item.href}>
-              {item.label}
+        <div style={{ display: "flex", gap: 32, flex: 1 }}>
+          {navLinks.map((l) => (
+            <Link key={l.label} href={l.href} style={{ fontSize: 12, fontWeight: 500, color: "#0a0a0a", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+              {l.label}
             </Link>
           ))}
-        </nav>
-      </div>
-
-      <div className="sfm-footer-bottom">
-        <span>© 2025 StrykeFox Medical. All rights reserved.</span>
-        <div>
-          <Link href="/privacy">Privacy Policy</Link>
-          <Link href="/terms">Terms of Use</Link>
         </div>
-      </div>
-    </footer>
-  );
-}
+        <Link href="https://dashboard.strykefox.com" style={{ fontSize: 11, fontWeight: 600, color: "#0a0a0a", textDecoration: "none", letterSpacing: "0.1em", border: "1.5px solid #0a0a0a", padding: "10px 20px", textTransform: "uppercase" }}>
+          SPEAR Login
+        </Link>
+      </nav>
 
-export default function HomePage() {
-  return (
-    <main className="sfm-page">
-      <Hero />
+      {/* SECTION 1 — HERO */}
+      <section className="snap-section" ref={(el) => { sectionRefs.current[0] = el; }} style={{ display: "flex" }}>
+        {/* LEFT */}
+        <div style={{ flex: "0 0 52%", background: "#fff", backgroundImage: "none", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
+          <div style={{ padding: "120px 56px 0", zIndex: 10, position: "relative" }} className="fade-up">
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", color: "#2563eb", marginBottom: 24, textTransform: "uppercase" }}>StrykeFox Medical</p>
+            <h1 style={{ fontWeight: 900, fontSize: "clamp(3.5rem, 6vw, 6.5rem)", lineHeight: 1.0, color: "#0a0a0a", margin: 0, maxWidth: 620 }}>
+              CarePath organizes the journey. Healthcare Lineage scales the platform.
+            </h1>
+          </div>
+          <div style={{ flex: 1, position: "relative", marginTop: 32 }}>
+            <img src="/images/doctor-hero.jpg" alt="Clinical" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
+            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", background: "rgba(255,255,255,0.92)", backdropFilter: "blur(8px)", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
+              {doctrine.map((d, i) => (
+                <div key={d.label} style={{ padding: "24px 20px", borderRight: i < 3 ? "1px solid rgba(0,0,0,0.08)" : "none" }}>
+                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", color: "#0a0a0a", margin: "0 0 4px" }}>{d.label}</p>
+                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", color: "#2563eb", margin: "0 0 10px" }}>{d.platform}</p>
+                  <p style={{ fontSize: 11, color: "#555", margin: 0, lineHeight: 1.5 }}>{d.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        {/* RIGHT */}
+        <div style={{ flex: 1, background: "#090E1C", backgroundImage: "none", display: "flex", flexDirection: "column", padding: "120px 56px 0", overflow: "hidden" }}>
+          <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", color: "#2563eb", marginBottom: 40, textTransform: "uppercase" }} className="fade-up">Discover Our Platform</p>
+          <div style={{ flex: 1 }} className="fade-up">
+            {platforms.map((p) => (
+              <Link key={p.name} href={p.href} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "24px 0", borderTop: "1px solid rgba(255,255,255,0.07)", textDecoration: "none" }}>
+                <span style={{ fontWeight: 700, fontSize: 16, color: "#fff", minWidth: 180 }}>{p.name}</span>
+                <span style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textAlign: "right", maxWidth: 320 }}>{p.desc}</span>
+              </Link>
+            ))}
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }} />
+          </div>
+          <div style={{ marginTop: 40, height: 220, overflow: "hidden" }}>
+            <img src="/images/doctor-hero.jpg" alt="Clinical" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", display: "block" }} />
+          </div>
+        </div>
+      </section>
 
-      <ChapterSection
-        id="carepath"
-        eyebrow="01 / CAREPATH"
-        title="Care that follows the patient."
-        body="From pre-op to recovery, CarePath organizes the healthcare lineage around documentation, coordination, and continuity."
-        tags={carePathTags}
-        cta="Explore CarePath"
-        href="/carepath"
-        visual="carepath"
-      />
-
-      <ChapterSection
-        id="northstar"
-        eyebrow="02 / NORTHSTAR SURGICAL INNOVATIONS"
-        title="Innovation built around the operating room."
-        body="NSI advances surgical tools, device commercialization, Ex-Im pathways, and emerging medical technologies designed for real-world clinical flow."
-        cta="Explore NSI"
-        href="/northstar-surgical-innovations"
-        visual="nsi"
-      />
-
-      <ChapterSection
-        id="spear"
-        eyebrow="03 / SPEAR"
-        title="Deployment intelligence behind the platform."
-        body="SPEAR powers execution through integrated data capture, analysis, learning, and field deployment."
-        support="Powered internally by Poseidon, Trident, and Aries."
-        cta="Explore SPEAR"
-        href="https://dashboard.strykefox.com"
-        visual="spear"
-      />
-
-      <ChapterSection
-        id="sensars"
-        eyebrow="04 / SENSARS"
-        title="Restore sensation before neuropathy becomes amputation."
-        body="Closed-loop neurotechnology platform targeting the moment before diabetic neuropathy becomes ulcers, falls, and limb loss."
-        support="268M at risk globally · $79B U.S. burden · FDA Breakthrough Device"
-        cta="Explore Sensars"
-        href="/sensars"
-        visual="sensars"
-      />
-
-      <ChapterSection
-        id="soc13"
-        eyebrow="05 / SOC13"
-        title="Expansion by design."
-        body="SoC13 aligns verticals, integrates capabilities, and reduces friction across healthcare delivery."
-        cta="Platform Expansion"
-        href="/soc13"
-        visual="soc13"
-      />
-
-      <Leadership />
-      <Footer />
-    </main>
+      {/* SECTIONS 2-6 — PLATFORM VERTICALS */}
+      {verticals.map((v, i) => (
+        <section
+          key={v.name}
+          className="snap-section"
+          ref={(el) => { sectionRefs.current[i + 1] = el; }}
+          style={{ background: v.bg, display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", padding: "0 10vw", position: "relative" }}
+        >
+          <img src={v.image} alt="" aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: v.color === "#fff" ? 0.34 : 0.42 }} />
+          <div style={{ position: "absolute", inset: 0, background: v.color === "#fff" ? "linear-gradient(90deg, rgba(255,255,255,0.94), rgba(255,255,255,0.76), rgba(255,255,255,0.38))" : "linear-gradient(90deg, rgba(9,14,28,0.94), rgba(9,14,28,0.78), rgba(9,14,28,0.42))" }} />
+          <div className="fade-up" style={{ position: "relative", zIndex: 2 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", color: v.accent, marginBottom: 24, textTransform: "uppercase" }}>{v.tag}</p>
+            <h2 style={{ fontWeight: 900, fontSize: "clamp(3rem, 5.5vw, 5.5rem)", lineHeight: 1.05, color: v.color, maxWidth: 800, marginBottom: 32 }}>{v.headline}</h2>
+            <p style={{ fontSize: 18, color: v.color === "#fff" ? "rgba(255,255,255,0.55)" : "#555", maxWidth: 560, lineHeight: 1.7, marginBottom: 48 }}>{v.body}</p>
+            <Link href={v.href} style={{ display: "inline-block", background: v.color === "#fff" ? "#fff" : "#0a0a0a", color: v.color === "#fff" ? "#090E1C" : "#fff", padding: "16px 36px", fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textDecoration: "none", textTransform: "uppercase", borderRadius: 2 }}>
+              {v.cta} →
+            </Link>
+          </div>
+          {/* Section indicator */}
+          <div style={{ position: "absolute", bottom: 40, right: 56, zIndex: 2, fontSize: 11, color: v.color === "#fff" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)", letterSpacing: "0.1em", fontWeight: 600 }}>
+            0{i + 2} / 06
+          </div>
+        </section>
+      ))}
+    </div>
   );
 }
