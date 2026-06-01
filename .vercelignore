@@ -1,0 +1,7 @@
+deploy/
+data/
+scripts/
+AWS OS/
+*.pdf
+*.xlsx
+*.gsheet
