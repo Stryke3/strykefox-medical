@@ -1,22 +1,27 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 const navLinks = [
-  { label: "Providers", href: "/providers" },
-  { label: "Life Sciences", href: "/life-sciences" },
-  { label: "Platform", href: "/platform" },
-  { label: "Compliance", href: "/compliance" },
-  { label: "StrykePac Ex-Im SA", href: "/strykepac" },
+  { label: "CarePath", href: "https://carepath.strykefox.com", external: true },
+  { label: "SPEAR", href: "/spear" },
+  { label: "NorthStar", href: "https://northstar.strykefox.com", external: true },
+  { label: "SoC13", href: "https://soc13.strykefox.com", external: true },
+  { label: "Mommy Care Kit", href: "https://mommycarekit.strykefox.com", external: true },
+  { label: "StrykePac Ex-Im", href: "/strykepac" },
+  { label: "Founders", href: "/founders" },
+  { label: "Adam W. Stryker", href: "https://www.adamwstryker.com", external: true },
 ];
 
 const platforms = [
   { name: "CarePath", desc: "Healthcare lineage and patient pathway coordination", href: "https://carepath.strykefox.com" },
-  { name: "SPEAR", desc: "Trident AI scoring, Poseidon storage, Aries deployment", href: "/platform" },
-  { name: "StrykePac Ex-Im SA", desc: "International gateway to world-class surgical technology", href: "/strykepac" },
-  { name: "NSI", desc: "Surgical device commercialization and OR workflow", href: "https://northstar.strykefox.com" },
+  { name: "SPEAR", desc: "Trident AI scoring, Poseidon storage, Aries deployment", href: "/spear" },
+  { name: "NorthStar", desc: "Surgical intelligence and documented OR workflow", href: "https://northstar.strykefox.com" },
   { name: "SoC13", desc: "Compliance engine for documentation and billing", href: "https://soc13.strykefox.com" },
+  { name: "Mommy Care Kit", desc: "Bilingual maternity recovery coordination", href: "https://mommycarekit.strykefox.com" },
+  { name: "StrykePac Ex-Im SA", desc: "International gateway to world-class surgical technology", href: "/strykepac" },
 ];
 
 const doctrine = [
@@ -29,63 +34,63 @@ const doctrine = [
 const verticals = [
   {
     name: "CarePath",
-    tag: "Healthcare Lineage",
+    tag: "RECOVERY COORDINATION",
     headline: "Every patient. Every pathway. Every step.",
     body: "CarePath coordinates pre-op through post-acute care — documenting, tracking, and closing gaps across the entire healthcare journey.",
-    cta: "Enter CarePath",
+    cta: "ENTER CAREPATH →",
     href: "https://carepath.strykefox.com",
     image: "/images/hero-healthcare.jpg",
-    bg: "#fff",
-    color: "#0a0a0a",
-    accent: "#2563eb",
+    tone: "light",
   },
   {
     name: "SPEAR",
-    tag: "Platform Intelligence",
+    tag: "PLATFORM INTELLIGENCE",
     headline: "Score risk before it becomes revenue loss.",
     body: "Trident AI scoring, Poseidon storage, and Aries field deployment operate in one continuous intelligence loop — no handoffs, no gaps.",
-    cta: "Enter SPEAR",
-    href: "/platform",
+    cta: "ENTER SPEAR →",
+    href: "/spear",
     image: "/images/Spear.PNG",
-    bg: "#090E1C",
-    color: "#fff",
-    accent: "#2563eb",
+    tone: "dark",
   },
   {
-    name: "StrykePac Ex-Im SA",
-    tag: "Export & Import",
-    headline: "World-class surgical technology. Global reach.",
-    body: "Compliant cross-border distribution for DME, biologics, and implants — structured for real international OR procurement.",
-    cta: "Enter StrykePac",
-    href: "/strykepac",
-    image: "/images/strykepac.png",
-    bg: "#fff",
-    color: "#0a0a0a",
-    accent: "#2563eb",
-  },
-  {
-    name: "NSI",
-    tag: "Surgical Innovation",
-    headline: "From the OR floor to commercial launch.",
-    body: "NorthStar Innovations commercializes surgical devices and builds Ex-Im pathways designed around real operating room workflow.",
-    cta: "Enter NSI",
+    name: "NorthStar",
+    tag: "SURGICAL INTELLIGENCE",
+    headline: "From the OR to the payer. Closed loop.",
+    body: "NorthStar connects surgical device commercialization, implant-adjacent support, and OR workflow into one documented, billable sequence.",
+    cta: "ENTER NORTHSTAR →",
     href: "https://northstar.strykefox.com",
     image: "/images/surgical-hero.jpg",
-    bg: "#090E1C",
-    color: "#fff",
-    accent: "#2563eb",
+    tone: "dark",
   },
   {
     name: "SoC13",
-    tag: "Compliance Engine",
-    headline: "Documentation that defends itself.",
-    body: "Automated HIPAA billing validation, audit trail generation, and regulatory compliance across every vertical — always current, always defensible.",
-    cta: "Enter SoC13",
+    tag: "EXPANSION & DEVELOPMENT",
+    headline: "The engine that builds what's next.",
+    body: "SoC13 is the development and expansion platform behind SFM — the infrastructure and integration layer that launches new healthcare verticals and scales them into revenue.",
+    cta: "ENTER SOC13 →",
     href: "https://soc13.strykefox.com",
     image: "/images/northstar.png",
-    bg: "#fff",
-    color: "#0a0a0a",
-    accent: "#2563eb",
+    tone: "light",
+  },
+  {
+    name: "Mommy Care Kit",
+    tag: "MATERNITY RECOVERY",
+    headline: "From delivery to full recovery.",
+    body: "Bilingual, provider-directed maternity and postpartum recovery coordination — verified, documented, and compliance-safe at every step.",
+    cta: "ENTER MOMMY CARE KIT →",
+    href: "https://mommycarekit.strykefox.com",
+    image: "/images/maternity.png",
+    tone: "light",
+  },
+  {
+    name: "StrykePac Ex-Im SA",
+    tag: "GLOBAL DISTRIBUTION",
+    headline: "World-class DME. Cross-border ready.",
+    body: "Compliant cross-border distribution for DME, biologics, and implants — built for real OR procurement and international healthcare delivery.",
+    cta: "ENTER STRYKEPAC →",
+    href: "/strykepac",
+    image: "/images/strykepac.png",
+    tone: "dark",
   },
 ];
 
@@ -116,21 +121,50 @@ export default function Home() {
   return (
     <div className="snap-container">
       {/* NAV — fixed over all sections */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, display: "flex", alignItems: "center", padding: "20px 48px", background: "rgba(255,255,255,0.9)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", marginRight: 48 }}>
-          <span style={{ fontWeight: 800, fontSize: 15, color: "#0a0a0a", letterSpacing: "0.05em" }}>STRYKEFOX</span>
-          <span style={{ fontWeight: 300, fontSize: 12, color: "#0a0a0a", letterSpacing: "0.1em" }}>MEDICAL</span>
+      <nav className="sfm-snap-nav">
+        <Link href="/" className="sfm-snap-brand">
+          <Image src="/images/strykefox-logo.svg" alt="StrykeFox Medical" width={36} height={36} />
+          <span>STRYKEFOX</span>
+          <small>MEDICAL</small>
         </Link>
-        <div style={{ display: "flex", gap: 32, flex: 1 }}>
+        <div className="sfm-snap-nav-links">
           {navLinks.map((l) => (
-            <Link key={l.label} href={l.href} style={{ fontSize: 12, fontWeight: 500, color: "#0a0a0a", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-              {l.label}
-            </Link>
+            l.external ? (
+              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer">
+                {l.label}
+              </a>
+            ) : (
+              <Link key={l.label} href={l.href}>
+                {l.label}
+              </Link>
+            )
           ))}
         </div>
-        <Link href="https://dashboard.strykefox.com" style={{ fontSize: 11, fontWeight: 600, color: "#0a0a0a", textDecoration: "none", letterSpacing: "0.1em", border: "1.5px solid #0a0a0a", padding: "10px 20px", textTransform: "uppercase" }}>
+        <Link href="/spear" className="sfm-spear-login">
           SPEAR Login
         </Link>
+        <div className="sfm-mobile-menu">
+          <input id="sfm-mobile-nav-toggle" type="checkbox" aria-label="Open navigation" />
+          <label htmlFor="sfm-mobile-nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <div>
+            {navLinks.map((l) => (
+              l.external ? (
+                <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer">
+                  {l.label}
+                </a>
+              ) : (
+                <Link key={l.label} href={l.href}>
+                  {l.label}
+                </Link>
+              )
+            ))}
+            <Link href="/spear">SPEAR Login</Link>
+          </div>
+        </div>
       </nav>
 
       {/* SECTION 1 — HERO */}
@@ -140,7 +174,12 @@ export default function Home() {
           <div style={{ padding: "120px 56px 0", zIndex: 10, position: "relative" }} className="fade-up">
             <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", color: "#2563eb", marginBottom: 24, textTransform: "uppercase" }}>StrykeFox Medical</p>
             <h1 style={{ fontWeight: 900, fontSize: "clamp(3.5rem, 6vw, 6.5rem)", lineHeight: 1.0, color: "#0a0a0a", margin: 0, maxWidth: 620 }}>
-              CarePath organizes the journey. Healthcare Lineage scales the platform.
+              CarePath organizes<br />
+              the journey.<br />
+              Healthcare<br />
+              Lineage scales<br />
+              the<br />
+              platform.
             </h1>
           </div>
           <div style={{ flex: 1, position: "relative", marginTop: 32 }}>
@@ -174,27 +213,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTIONS 2-6 — PLATFORM VERTICALS */}
+      {/* SECTIONS 2-7 — PLATFORM VERTICALS */}
       {verticals.map((v, i) => (
         <section
           key={v.name}
-          className="snap-section"
+          className={`snap-section sfm-vertical-section sfm-vertical-${v.tone}`}
           ref={(el) => { sectionRefs.current[i + 1] = el; }}
-          style={{ background: v.bg, display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", padding: "0 10vw", position: "relative" }}
         >
-          <img src={v.image} alt="" aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: v.color === "#fff" ? 0.34 : 0.42 }} />
-          <div style={{ position: "absolute", inset: 0, background: v.color === "#fff" ? "linear-gradient(90deg, rgba(255,255,255,0.94), rgba(255,255,255,0.76), rgba(255,255,255,0.38))" : "linear-gradient(90deg, rgba(9,14,28,0.94), rgba(9,14,28,0.78), rgba(9,14,28,0.42))" }} />
-          <div className="fade-up" style={{ position: "relative", zIndex: 2 }}>
-            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", color: v.accent, marginBottom: 24, textTransform: "uppercase" }}>{v.tag}</p>
-            <h2 style={{ fontWeight: 900, fontSize: "clamp(3rem, 5.5vw, 5.5rem)", lineHeight: 1.05, color: v.color, maxWidth: 800, marginBottom: 32 }}>{v.headline}</h2>
-            <p style={{ fontSize: 18, color: v.color === "#fff" ? "rgba(255,255,255,0.55)" : "#555", maxWidth: 560, lineHeight: 1.7, marginBottom: 48 }}>{v.body}</p>
-            <Link href={v.href} style={{ display: "inline-block", background: v.color === "#fff" ? "#fff" : "#0a0a0a", color: v.color === "#fff" ? "#090E1C" : "#fff", padding: "16px 36px", fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textDecoration: "none", textTransform: "uppercase", borderRadius: 2 }}>
-              {v.cta} →
-            </Link>
-          </div>
-          {/* Section indicator */}
-          <div style={{ position: "absolute", bottom: 40, right: 56, zIndex: 2, fontSize: 11, color: v.color === "#fff" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)", letterSpacing: "0.1em", fontWeight: 600 }}>
-            0{i + 2} / 06
+          <div className="sfm-vertical-grid">
+            <div className="fade-up sfm-vertical-copy">
+              <p className="sfm-vertical-label">{v.tag}</p>
+              <h2>{v.headline}</h2>
+              <p>{v.body}</p>
+              <Link href={v.href} className="sfm-vertical-cta">
+                {v.cta}
+              </Link>
+            </div>
+            <div className="sfm-vertical-media" aria-hidden="true">
+              <img src={v.image} alt="" />
+            </div>
+            <div className="sfm-section-count">
+              {String(i + 2).padStart(2, "0")} / 07
+            </div>
           </div>
         </section>
       ))}
