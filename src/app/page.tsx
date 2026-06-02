@@ -123,7 +123,7 @@ export default function Home() {
       {/* NAV — fixed over all sections */}
       <nav className="sfm-snap-nav">
         <Link href="/" className="sfm-snap-brand">
-          <Image src="/images/strykefox-logo.svg" alt="StrykeFox Medical" width={36} height={36} />
+          <Image src="/images/sfm-fox.jpeg" alt="StrykeFox Medical" width={36} height={36} />
           <span>STRYKEFOX</span>
           <small>MEDICAL</small>
         </Link>
