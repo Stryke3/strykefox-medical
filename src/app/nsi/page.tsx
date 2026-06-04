@@ -1,7 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
-import { ArrowRight, Menu, X, Building, Plane, Ship, CheckCircle, Wrench, Activity, TrendingUp } from 'lucide-react';
+import { ArrowRight, Menu, X, Building, Plane, CheckCircle, Wrench, Activity, TrendingUp } from 'lucide-react';
 
 export default function NSIPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -130,9 +131,11 @@ export default function NSIPage() {
             {/* TKA Blocking System */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="relative h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                <img 
+                <Image
                   src="/images/tka-blocking-system.jpg" 
                   alt="TKA Blocking System" 
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="absolute inset-0 w-full h-full object-cover opacity-80"
                 />
                 <div className="relative z-10 text-center text-white px-6">
@@ -170,9 +173,11 @@ export default function NSIPage() {
             {/* Mid-TKR Saw */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="relative h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                <img 
+                <Image
                   src="/images/mid-tkr-saw.jpg" 
                   alt="Mid-TKR Saw" 
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="absolute inset-0 w-full h-full object-cover opacity-80"
                 />
                 <div className="relative z-10 text-center text-white px-6">

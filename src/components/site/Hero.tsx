@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 
 export function Hero() {
@@ -47,9 +48,12 @@ export function Hero() {
         <div className="relative">
           <div className="relative z-10 rounded-2xl border border-sky-300/20 bg-[#030b16]/60 p-8 backdrop-blur-xl">
             <div className="aspect-square w-full max-w-md mx-auto">
-              <img 
-                src="/images/strykefox-medical-logo.png" 
+              <Image
+                src="/images/sfm-logo.jpeg"
                 alt="StrykeFox Medical Platform" 
+                width={420}
+                height={420}
+                priority
                 className="w-full h-full object-contain"
               />
             </div>

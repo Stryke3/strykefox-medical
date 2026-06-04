@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Northstar Surgical Innovations | Innovation. Infrastructure. Impact.',
@@ -36,9 +37,11 @@ export default function NorthstarPage() {
           {/* Wordmark */}
           <div style={{ marginBottom: '2rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '2.5rem' }}>
-              <img
+              <Image
                 src="/images/nsi-logo.jpeg"
                 alt="Northstar Surgical Innovations"
+                width={80}
+                height={80}
                 style={{ width: '80px', height: '80px', objectFit: 'contain', borderRadius: '4px' }}
               />
             </div>

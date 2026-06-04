@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "StrykePac Ex-Im SA | StrykeFox Medical",
@@ -233,7 +234,7 @@ export default function StrykePacPage() {
         </div>
 
         <div className="strykepac-visual">
-          <img src="/images/strykepac.png" alt="StrykePac Ex-Im SA" />
+          <Image src="/images/strykepac.png" alt="StrykePac Ex-Im SA" width={900} height={900} priority />
         </div>
       </section>
     </main>
