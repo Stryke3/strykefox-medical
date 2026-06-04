@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { ArrowRight, Building2, Network, Shield, TrendingUp, Users, Link, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
+import { Building2, Network, Shield, TrendingUp, Link, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'SoC13 | Expansion by design',
@@ -103,10 +104,11 @@ export default function SoC13Page() {
           </p>
           <div className="hero-cta-group">
             <a href="#thesis" className="btn-primary">Review Expansion Thesis</a>
+            <a href="/soc13/deal-qa" className="btn-secondary">Open 13-Point Assessment</a>
           </div>
         </div>
         <div className="onepager-logo-card">
-          <img src="/images/soc13-logo.svg" alt="SoC13" />
+          <Image src="/images/Pharmacy.png" alt="SoC13 pharmacy adjacency assessment" width={520} height={293} priority />
         </div>
       </section>
 

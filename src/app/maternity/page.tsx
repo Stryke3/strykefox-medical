@@ -8,7 +8,7 @@ export default function MaternityPage() {
 
   const maternitySites = [
     {
-      name: "Mommy Care",
+      name: "Maternity CarePath",
       description: "Comprehensive maternity care platform for modern mothers",
       url: "https://mommy.strykefox.com",
       icon: Baby,
@@ -66,7 +66,7 @@ export default function MaternityPage() {
         
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            MATERNITY CARE
+            MATERNITY CAREPATH
           </h1>
           <p className="text-2xl md:text-3xl mb-8 text-purple-100">
             Comprehensive care platforms for mothers and families

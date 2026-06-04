@@ -8,20 +8,39 @@ const navLinks = [
   { label: "CarePath", href: "https://carepath.strykefox.com", external: true },
   { label: "SPEAR", href: "/spear" },
   { label: "NorthStar", href: "https://northstar.strykefox.com", external: true },
-  { label: "SoC13", href: "https://soc13.strykefox.com", external: true },
-  { label: "Mommy Care Kit", href: "https://mommycarekit.strykefox.com", external: true },
+  { label: "SoC13", href: "/soc13/deal-qa" },
+  { label: "Maternity CarePath", href: "https://mommycarekit.strykefox.com", external: true },
   { label: "StrykePac Ex-Im", href: "/strykepac" },
   { label: "Founders", href: "/founders" },
   { label: "Adam W. Stryker", href: "https://www.adamwstryker.com", external: true },
 ];
 
 const platforms = [
-  { name: "CarePath", desc: "Healthcare lineage and patient pathway coordination", href: "https://carepath.strykefox.com" },
-  { name: "SPEAR", desc: "Trident AI scoring, Poseidon storage, Aries deployment", href: "/spear" },
-  { name: "NorthStar", desc: "Surgical intelligence and documented OR workflow", href: "https://northstar.strykefox.com" },
-  { name: "SoC13", desc: "Compliance engine for documentation and billing", href: "https://soc13.strykefox.com" },
-  { name: "Mommy Care Kit", desc: "Bilingual maternity recovery coordination", href: "https://mommycarekit.strykefox.com" },
-  { name: "StrykePac Ex-Im SA", desc: "International gateway to world-class surgical technology", href: "/strykepac" },
+  {
+    name: "CarePath",
+    desc: "Coordinated recovery pathways from clinical event to fully aided recovery — with you every step of the way.",
+    href: "https://carepath.strykefox.com",
+  },
+  {
+    name: "SPEAR",
+    desc: "Accelerates CarePath through AI learning models built to optimize recovery workflows, documentation, fulfillment, and execution.",
+    href: "/spear",
+  },
+  {
+    name: "StrykeREG Global",
+    desc: "510(k), FDA, import/export, compliance readiness, and global deployment infrastructure.",
+    href: "/strykepac",
+  },
+  {
+    name: "NSI",
+    desc: "Next-generation surgical technology, tool development, training, and certification pathways for FDA 510(k)-cleared orthopedic innovation.",
+    href: "https://northstar.strykefox.com",
+  },
+  {
+    name: "SoC13",
+    desc: "13-point deal quality assessment for acquisition, integration, and healthcare lineage growth.",
+    href: "/soc13/deal-qa",
+  },
 ];
 
 const doctrine = [
@@ -33,64 +52,64 @@ const doctrine = [
 
 const verticals = [
   {
-    name: "CarePath",
     tag: "RECOVERY COORDINATION",
-    headline: "Every patient. Every pathway. Every step.",
-    body: "CarePath coordinates pre-op through post-acute care — documenting, tracking, and closing gaps across the entire healthcare journey.",
+    headline: "Recovery starts here. We make sure it finishes.",
+    body: "CarePath activates the moment care is prescribed — coordinating the right recovery products, documentation, and support to meet every patient exactly where they are, from clinical event through full recovery.",
     cta: "ENTER CAREPATH →",
     href: "https://carepath.strykefox.com",
-    image: "/images/hero-healthcare.jpg",
-    tone: "light",
+    image: "/images/hero.png",
+    alt: "CarePath recovery coordination",
+    dark: false,
   },
   {
-    name: "SPEAR",
     tag: "PLATFORM INTELLIGENCE",
-    headline: "Score risk before it becomes revenue loss.",
-    body: "Trident AI scoring, Poseidon storage, and Aries field deployment operate in one continuous intelligence loop — no handoffs, no gaps.",
+    headline: "The intelligence layer behind every CarePath outcome.",
+    body: "SPEAR powers CarePath with AI-driven workflow execution — learning from every case, every payer, and every recovery to make the next one faster, cleaner, and more complete.",
     cta: "ENTER SPEAR →",
     href: "/spear",
     image: "/images/Spear.PNG",
-    tone: "dark",
+    alt: "SPEAR platform intelligence",
+    dark: true,
   },
   {
-    name: "NorthStar",
-    tag: "SURGICAL INTELLIGENCE",
-    headline: "From the OR to the payer. Closed loop.",
-    body: "NorthStar connects surgical device commercialization, implant-adjacent support, and OR workflow into one documented, billable sequence.",
+    tag: "SURGICAL INNOVATION",
+    headline: "Precision built. FDA cleared. OR ready.",
+    body: "NSI develops FDA 510(k)-cleared orthopedic technology and delivers it through surgeon training, certification, and clinical integration programs designed around real operating room workflow and case volume.",
     cta: "ENTER NORTHSTAR →",
     href: "https://northstar.strykefox.com",
-    image: "/images/surgical-hero.jpg",
-    tone: "dark",
-  },
-  {
-    name: "SoC13",
-    tag: "EXPANSION & DEVELOPMENT",
-    headline: "The engine that builds what's next.",
-    body: "SoC13 is the development and expansion platform behind SFM — the infrastructure and integration layer that launches new healthcare verticals and scales them into revenue.",
-    cta: "ENTER SOC13 →",
-    href: "https://soc13.strykefox.com",
     image: "/images/northstar.png",
-    tone: "light",
+    alt: "NorthStar Surgical Innovations device platform",
+    dark: true,
   },
   {
-    name: "Mommy Care Kit",
-    tag: "MATERNITY RECOVERY",
-    headline: "From delivery to full recovery.",
-    body: "Bilingual, provider-directed maternity and postpartum recovery coordination — verified, documented, and compliance-safe at every step.",
-    cta: "ENTER MOMMY CARE KIT →",
+    tag: "STRATEGIC EXPANSION",
+    headline: "Thirteen points before capital moves.",
+    body: "SoC13 is the CARES deal-quality assessment layer — evaluating healthcare assets, pharmacy adjacency, compliance exposure, and integration readiness before capital deployment.",
+    cta: "OPEN SOC13 ASSESSMENT →",
+    href: "/soc13/deal-qa",
+    image: "/images/Pharmacy.png",
+    alt: "Pharmacy operations visual for SoC13 deal quality assessment",
+    dark: false,
+  },
+  {
+    tag: "MATERNAL RECOVERY",
+    headline: "Every mother deserves a complete recovery.",
+    body: "Maternity CarePath coordinates provider-directed postpartum recovery support — personalized to every mother's clinical pathway and delivered directly to her door.",
+    cta: "ENTER MATERNITY CAREPATH →",
     href: "https://mommycarekit.strykefox.com",
     image: "/images/maternity.png",
-    tone: "light",
+    alt: "Maternity CarePath recovery coordination",
+    dark: false,
   },
   {
-    name: "StrykePac Ex-Im SA",
     tag: "GLOBAL DISTRIBUTION",
-    headline: "World-class DME. Cross-border ready.",
-    body: "Compliant cross-border distribution for DME, biologics, and implants — built for real OR procurement and international healthcare delivery.",
+    headline: "World-class surgical technology. Built for every market.",
+    body: "StrykePac delivers compliant cross-border distribution infrastructure for DME, biologics, and surgical implants — structured for real international OR procurement with documentation built in from day one.",
     cta: "ENTER STRYKEPAC →",
     href: "/strykepac",
     image: "/images/strykepac.png",
-    tone: "dark",
+    alt: "StrykePac global distribution infrastructure",
+    dark: true,
   },
 ];
 
@@ -183,7 +202,7 @@ export default function Home() {
             </h1>
           </div>
           <div style={{ flex: 1, position: "relative", marginTop: 32 }}>
-            <img src="/images/doctor-hero.jpg" alt="Clinical" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
+            <Image src="/images/doctor-hero.jpg" alt="Clinical recovery coordination" fill priority sizes="52vw" style={{ objectFit: "cover", objectPosition: "center top" }} />
             <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", background: "rgba(255,255,255,0.92)", backdropFilter: "blur(8px)", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
               {doctrine.map((d, i) => (
                 <div key={d.label} style={{ padding: "24px 20px", borderRight: i < 3 ? "1px solid rgba(0,0,0,0.08)" : "none" }}>
@@ -196,19 +215,17 @@ export default function Home() {
           </div>
         </div>
         {/* RIGHT */}
-        <div style={{ flex: 1, background: "#090E1C", backgroundImage: "none", display: "flex", flexDirection: "column", padding: "120px 56px 0", overflow: "hidden" }}>
-          <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", color: "#2563eb", marginBottom: 40, textTransform: "uppercase" }} className="fade-up">Discover Our Platform</p>
-          <div style={{ flex: 1 }} className="fade-up">
+        <div className="sfm-platform-panel">
+          <p className="sfm-platform-kicker fade-up">CARES HEALTHCARE LINEAGE PLATFORM</p>
+          <div className="sfm-platform-list fade-up">
             {platforms.map((p) => (
-              <Link key={p.name} href={p.href} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "24px 0", borderTop: "1px solid rgba(255,255,255,0.07)", textDecoration: "none" }}>
-                <span style={{ fontWeight: 700, fontSize: 16, color: "#fff", minWidth: 180 }}>{p.name}</span>
-                <span style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textAlign: "right", maxWidth: 320 }}>{p.desc}</span>
+              <Link key={p.name} href={p.href} className="sfm-platform-row">
+                <span className="sfm-platform-name">
+                  <span>{p.name}</span>
+                </span>
+                <span className="sfm-platform-desc">{p.desc}</span>
               </Link>
             ))}
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }} />
-          </div>
-          <div style={{ marginTop: 40, height: 220, overflow: "hidden" }}>
-            <img src="/images/doctor-hero.jpg" alt="Clinical" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", display: "block" }} />
           </div>
         </div>
       </section>
@@ -216,11 +233,15 @@ export default function Home() {
       {/* SECTIONS 2-7 — PLATFORM VERTICALS */}
       {verticals.map((v, i) => (
         <section
-          key={v.name}
-          className={`snap-section sfm-vertical-section sfm-vertical-${v.tone}`}
+          key={v.headline}
+          className={`snap-section sfm-vertical-section sfm-vertical-${v.dark ? "dark" : "light"}`}
+          style={{ flexDirection: i % 2 === 1 ? "row-reverse" : "row" }}
           ref={(el) => { sectionRefs.current[i + 1] = el; }}
         >
-          <div className="sfm-vertical-grid">
+          <div
+            className="sfm-vertical-grid"
+            style={{ flexDirection: i % 2 === 1 ? "row-reverse" : "row" }}
+          >
             <div className="fade-up sfm-vertical-copy">
               <p className="sfm-vertical-label">{v.tag}</p>
               <h2>{v.headline}</h2>
@@ -230,7 +251,13 @@ export default function Home() {
               </Link>
             </div>
             <div className="sfm-vertical-media" aria-hidden="true">
-              <img src={v.image} alt="" />
+              <Image
+                src={v.image}
+                alt={v.alt ?? ""}
+                fill
+                priority={i < 2}
+                sizes="(max-width: 768px) 100vw, 38vw"
+              />
             </div>
             <div className="sfm-section-count">
               {String(i + 2).padStart(2, "0")} / 07

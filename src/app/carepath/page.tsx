@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { ArrowRight, FileCheck2, Home, PenTool, Stethoscope, Baby, Activity, Orbit, ShieldCheck, Truck } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Home, PenTool, Stethoscope, Baby, Activity, Orbit, ShieldCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'CarePath by StrykeFox | Care that follows the patient',
@@ -23,12 +24,12 @@ const carePathways = [
     features: ['Joint recovery pathways', 'Physical therapy coordination', 'Durable medical equipment', 'Progress monitoring'],
   },
   {
-    title: 'CarePath Maternal',
+    title: 'Maternity CarePath',
     description: 'Specialized pathways for maternity and postnatal recovery.',
     icon: Baby,
     features: ['Postpartum care coordination', 'Maternal health monitoring', 'Newborn supplies', 'Insurance navigation'],
     externalLinks: [
-      { label: 'Mommy Care Platform', url: 'https://mommy.strykefox.com' },
+      { label: 'Maternity CarePath', url: 'https://mommy.strykefox.com' },
       { label: 'El Cuidado Platform', url: 'https://cuidado.strykefox.com' }
     ]
   },
@@ -79,7 +80,7 @@ export default function CarePathPage() {
           </div>
         </div>
         <div className="onepager-logo-card">
-          <img src="/images/strykefox-medical-logo.png" alt="CarePath by StrykeFox" />
+          <Image src="/images/sfm-logo.jpeg" alt="CarePath by StrykeFox" width={420} height={420} priority />
         </div>
       </section>
 
