@@ -3274,6 +3274,68 @@ html, body { height: 100%; overflow: hidden; background: #fff; background-image:
   max-width: none;
 }
 
+.sfm-vertical-bleed {
+  position: relative;
+  overflow: hidden;
+}
+
+.sfm-vertical-bleed .sfm-vertical-grid {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+}
+
+.sfm-vertical-bleed-left .sfm-vertical-grid {
+  margin-left: 50%;
+}
+
+.sfm-vertical-bleed-right .sfm-vertical-grid {
+  margin-right: 50%;
+}
+
+.sfm-vertical-bleed .sfm-vertical-copy {
+  max-width: none;
+}
+
+.sfm-bleed-image-panel {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sfm-bleed-image-right {
+  right: 0;
+}
+
+.sfm-bleed-image-left {
+  left: 0;
+}
+
+.sfm-bleed-image-soc13 img {
+  object-position: center top;
+}
+
+.sfm-bleed-image-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sfm-bleed-image-right .sfm-bleed-image-fade {
+  background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.55) 30%, rgba(255,255,255,0) 65%);
+}
+
+.sfm-bleed-image-left .sfm-bleed-image-fade {
+  background: linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0.55) 30%, rgba(255,255,255,0) 65%);
+}
+
 .sfm-maternity-image-panel {
   position: absolute;
   top: 0;
@@ -3684,6 +3746,37 @@ html, body { height: 100%; overflow: hidden; background: #fff; background-image:
     width: 100%;
     height: auto;
     flex: 1 1 auto;
+  }
+
+  .sfm-vertical-bleed {
+    display: flex;
+    flex-direction: column !important;
+    padding: 0;
+  }
+
+  .sfm-vertical-bleed .sfm-vertical-grid {
+    width: 100%;
+    height: auto;
+    flex: 1 1 auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .sfm-bleed-image-panel {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    height: 55vw;
+    min-height: 210px;
+    max-height: 360px;
+    flex: 0 0 auto;
+  }
+
+  .sfm-bleed-image-right .sfm-bleed-image-fade,
+  .sfm-bleed-image-left .sfm-bleed-image-fade {
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 65%, #ffffff 100%);
   }
 
   .sfm-maternity-image-panel {

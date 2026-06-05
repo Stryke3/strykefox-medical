@@ -232,11 +232,19 @@ export default function Home() {
       {verticals.map((v, i) => {
         const isSpear = v.tag === "PLATFORM INTELLIGENCE";
         const isMaternity = v.tag === "MATERNAL RECOVERY";
+        const isBleedImage = (
+          v.tag === "RECOVERY COORDINATION" ||
+          v.tag === "SURGICAL INNOVATION" ||
+          v.tag === "STRATEGIC EXPANSION" ||
+          v.tag === "GLOBAL DISTRIBUTION"
+        );
+        const bleedImageSide = i % 2 === 1 ? "left" : "right";
+        const isSoc13 = v.tag === "STRATEGIC EXPANSION";
 
         return (
           <section
             key={v.headline}
-            className={`snap-section sfm-vertical-section sfm-vertical-${v.dark ? "dark" : "light"}${isSpear ? " sfm-vertical-spear" : ""}${isMaternity ? " sfm-vertical-maternity" : ""}`}
+            className={`snap-section sfm-vertical-section sfm-vertical-${v.dark ? "dark" : "light"}${isSpear ? " sfm-vertical-spear" : ""}${isMaternity ? " sfm-vertical-maternity" : ""}${isBleedImage ? ` sfm-vertical-bleed sfm-vertical-bleed-${bleedImageSide}` : ""}`}
             style={{ flexDirection: i % 2 === 1 ? "row-reverse" : "row" }}
             ref={(el) => { sectionRefs.current[i + 1] = el; }}
           >
@@ -252,8 +260,14 @@ export default function Home() {
                 <div className="sfm-maternity-image-fade" />
               </div>
             )}
+            {isBleedImage && v.image && (
+              <div className={`sfm-bleed-image-panel sfm-bleed-image-${bleedImageSide} chapter-image${isSoc13 ? " sfm-bleed-image-soc13" : ""}`} aria-hidden="true">
+                <img src={v.image} alt="" />
+                <div className="sfm-bleed-image-fade" />
+              </div>
+            )}
             <div
-              className={`sfm-vertical-grid${v.image && !isMaternity ? "" : " sfm-vertical-grid-no-media"}`}
+              className={`sfm-vertical-grid${v.image && !isMaternity && !isBleedImage ? "" : " sfm-vertical-grid-no-media"}`}
               style={{ flexDirection: i % 2 === 1 ? "row-reverse" : "row" }}
             >
               <div className="fade-up sfm-vertical-copy">
@@ -264,7 +278,7 @@ export default function Home() {
                   {v.cta}
                 </Link>
             </div>
-              {v.image && !isMaternity && (
+              {v.image && !isMaternity && !isBleedImage && (
                 <div className="sfm-vertical-media chapter-image" aria-hidden="true">
                 <Image
                   src={v.image}
