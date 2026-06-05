@@ -67,8 +67,6 @@ const verticals = [
     body: "SPEAR powers CarePath with AI-driven workflow execution — learning from every case, every payer, and every recovery to make the next one faster, cleaner, and more complete.",
     cta: "ENTER SPEAR →",
     href: "/spear",
-    image: "/images/Spear.PNG",
-    alt: "SPEAR platform intelligence",
     dark: true,
   },
   {
@@ -164,7 +162,7 @@ export default function Home() {
         </Link>
         <div className="sfm-mobile-menu">
           <input id="sfm-mobile-nav-toggle" type="checkbox" aria-label="Open navigation" />
-          <label htmlFor="sfm-mobile-nav-toggle">
+          <label htmlFor="sfm-mobile-nav-toggle" aria-label="Toggle navigation menu">
             <span></span>
             <span></span>
             <span></span>
@@ -239,7 +237,7 @@ export default function Home() {
           ref={(el) => { sectionRefs.current[i + 1] = el; }}
         >
           <div
-            className="sfm-vertical-grid"
+            className={`sfm-vertical-grid${v.image ? "" : " sfm-vertical-grid-no-media"}`}
             style={{ flexDirection: i % 2 === 1 ? "row-reverse" : "row" }}
           >
             <div className="fade-up sfm-vertical-copy">
@@ -250,15 +248,17 @@ export default function Home() {
                 {v.cta}
               </Link>
             </div>
-            <div className="sfm-vertical-media" aria-hidden="true">
-              <Image
-                src={v.image}
-                alt={v.alt ?? ""}
-                fill
-                priority={i < 2}
-                sizes="(max-width: 768px) 100vw, 38vw"
-              />
-            </div>
+            {v.image && (
+              <div className="sfm-vertical-media" aria-hidden="true">
+                <Image
+                  src={v.image}
+                  alt={v.alt ?? ""}
+                  fill
+                  priority={i < 2}
+                  sizes="(max-width: 768px) 100vw, 38vw"
+                />
+              </div>
+            )}
             <div className="sfm-section-count">
               {String(i + 2).padStart(2, "0")} / 07
             </div>
