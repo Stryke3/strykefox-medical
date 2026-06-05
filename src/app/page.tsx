@@ -229,27 +229,43 @@ export default function Home() {
       </section>
 
       {/* SECTIONS 2-7 — PLATFORM VERTICALS */}
-      {verticals.map((v, i) => (
-        <section
-          key={v.headline}
-          className={`snap-section sfm-vertical-section sfm-vertical-${v.dark ? "dark" : "light"}`}
-          style={{ flexDirection: i % 2 === 1 ? "row-reverse" : "row" }}
-          ref={(el) => { sectionRefs.current[i + 1] = el; }}
-        >
-          <div
-            className={`sfm-vertical-grid${v.image ? "" : " sfm-vertical-grid-no-media"}`}
+      {verticals.map((v, i) => {
+        const isSpear = v.tag === "PLATFORM INTELLIGENCE";
+        const isMaternity = v.tag === "MATERNAL RECOVERY";
+
+        return (
+          <section
+            key={v.headline}
+            className={`snap-section sfm-vertical-section sfm-vertical-${v.dark ? "dark" : "light"}${isSpear ? " sfm-vertical-spear" : ""}${isMaternity ? " sfm-vertical-maternity" : ""}`}
             style={{ flexDirection: i % 2 === 1 ? "row-reverse" : "row" }}
+            ref={(el) => { sectionRefs.current[i + 1] = el; }}
           >
-            <div className="fade-up sfm-vertical-copy">
-              <p className="sfm-vertical-label">{v.tag}</p>
-              <h2>{v.headline}</h2>
-              <p>{v.body}</p>
-              <Link href={v.href} className="sfm-vertical-cta">
-                {v.cta}
-              </Link>
+            {isSpear && (
+              <>
+                <img src="/images/spear1.png" alt="" className="sfm-spear-background" aria-hidden="true" />
+                <div className="sfm-spear-overlay" aria-hidden="true" />
+              </>
+            )}
+            {isMaternity && v.image && (
+              <div className="sfm-maternity-image-panel chapter-image" aria-hidden="true">
+                <img src={v.image} alt="" />
+                <div className="sfm-maternity-image-fade" />
+              </div>
+            )}
+            <div
+              className={`sfm-vertical-grid${v.image && !isMaternity ? "" : " sfm-vertical-grid-no-media"}`}
+              style={{ flexDirection: i % 2 === 1 ? "row-reverse" : "row" }}
+            >
+              <div className="fade-up sfm-vertical-copy">
+                <p className="sfm-vertical-label">{v.tag}</p>
+                <h2>{v.headline}</h2>
+                <p>{v.body}</p>
+                <Link href={v.href} className="sfm-vertical-cta">
+                  {v.cta}
+                </Link>
             </div>
-            {v.image && (
-              <div className="sfm-vertical-media" aria-hidden="true">
+              {v.image && !isMaternity && (
+                <div className="sfm-vertical-media chapter-image" aria-hidden="true">
                 <Image
                   src={v.image}
                   alt={v.alt ?? ""}
@@ -258,13 +274,14 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, 38vw"
                 />
               </div>
-            )}
-            <div className="sfm-section-count">
-              {String(i + 2).padStart(2, "0")} / 07
+              )}
+              <div className="sfm-section-count">
+                {String(i + 2).padStart(2, "0")} / 07
+              </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        );
+      })}
     </div>
   );
 }

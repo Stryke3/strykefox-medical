@@ -3135,6 +3135,20 @@ html, body { height: 100%; overflow: hidden; background: #fff; background-image:
   height: 100%;
 }
 
+.chapter-image {
+  overflow: hidden;
+  padding: 0;
+  border-radius: 0;
+}
+
+.chapter-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .sfm-vertical-grid-no-media .sfm-vertical-copy {
   max-width: 980px;
 }
@@ -3215,6 +3229,70 @@ html, body { height: 100%; overflow: hidden; background: #fff; background-image:
 .sfm-vertical-dark .sfm-vertical-cta {
   background: #ffffff;
   color: #090e1c;
+}
+
+.sfm-vertical-spear {
+  position: relative;
+  overflow: hidden;
+}
+
+.sfm-spear-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sfm-spear-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(5,7,20,0.85) 0%, rgba(5,7,20,0.5) 100%);
+}
+
+.sfm-vertical-spear .sfm-vertical-grid {
+  position: relative;
+  z-index: 2;
+}
+
+.sfm-vertical-maternity {
+  position: relative;
+  overflow: hidden;
+}
+
+.sfm-vertical-maternity .sfm-vertical-grid {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+}
+
+.sfm-vertical-maternity .sfm-vertical-copy {
+  max-width: none;
+}
+
+.sfm-maternity-image-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sfm-maternity-image-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0) 65%);
 }
 
 .sfm-vertical-media {
@@ -3584,6 +3662,43 @@ html, body { height: 100%; overflow: hidden; background: #fff; background-image:
     flex-direction: column !important;
     min-height: 100svh;
     padding: 3rem 1.25rem;
+  }
+
+  .sfm-vertical-spear {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sfm-vertical-spear .sfm-vertical-grid {
+    position: relative;
+    z-index: 2;
+  }
+
+  .sfm-vertical-maternity {
+    display: flex;
+    flex-direction: column !important;
+    padding: 0;
+  }
+
+  .sfm-vertical-maternity .sfm-vertical-grid {
+    width: 100%;
+    height: auto;
+    flex: 1 1 auto;
+  }
+
+  .sfm-maternity-image-panel {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: 55vw;
+    min-height: 210px;
+    max-height: 360px;
+    flex: 0 0 auto;
+  }
+
+  .sfm-maternity-image-fade {
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 65%, #ffffff 100%);
   }
 
   .sfm-vertical-copy {
