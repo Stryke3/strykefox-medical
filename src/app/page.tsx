@@ -140,9 +140,7 @@ export default function Home() {
       {/* NAV — fixed over all sections */}
       <nav className="sfm-snap-nav">
         <Link href="/" className="sfm-snap-brand">
-          <Image src="/images/sfm-fox.jpeg" alt="StrykeFox Medical" width={36} height={36} />
-          <span>STRYKEFOX</span>
-          <small>MEDICAL</small>
+          <Image src="/images/sfm-logo.png" alt="StrykeFox Medical" width={120} height={107} className="sfm-nav-logo" priority />
         </Link>
         <div className="sfm-snap-nav-links">
           {navLinks.map((l) => (
