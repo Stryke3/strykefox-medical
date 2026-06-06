@@ -3747,59 +3747,64 @@ html, body { height: 100%; overflow: hidden; background: #fff; background-image:
   .sfm-vertical-maternity {
     display: flex;
     flex-direction: column !important;
-    min-height: auto;
+    min-height: 100svh;
     padding: 0;
   }
 
   .sfm-vertical-maternity .sfm-vertical-grid {
     width: 100%;
-    height: auto;
+    height: 100%;
     flex: 1 1 auto;
   }
 
   .sfm-vertical-bleed {
     display: flex;
     flex-direction: column !important;
-    min-height: auto;
+    min-height: 100svh;
     padding: 0;
   }
 
   .sfm-vertical-bleed .sfm-vertical-grid {
     width: 100%;
-    height: auto;
+    height: 100%;
     flex: 1 1 auto;
     margin-left: 0;
     margin-right: 0;
   }
 
   .sfm-bleed-image-panel {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    width: 100%;
-    height: 55vw;
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 100%;
+    margin-left: 0;
+    margin-right: 0;
     min-height: 210px;
     flex: 0 0 auto;
   }
 
   .sfm-bleed-image-right .sfm-bleed-image-fade,
   .sfm-bleed-image-left .sfm-bleed-image-fade {
-    background: linear-gradient(to bottom, rgba(5,7,20,0) 65%, rgba(5,7,20,1) 100%);
+    background: linear-gradient(to bottom, rgba(5,7,20,0.18) 0%, rgba(5,7,20,0.72) 46%, rgba(5,7,20,1) 100%);
+  }
+
+  .sfm-vertical-light .sfm-bleed-image-fade {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.82) 46%, #ffffff 100%);
   }
 
   .sfm-maternity-image-panel {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 100%;
-    height: 55vw;
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 100%;
+    margin-left: 0;
+    margin-right: 0;
     min-height: 210px;
     flex: 0 0 auto;
   }
 
   .sfm-maternity-image-fade {
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 65%, #ffffff 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.82) 46%, #ffffff 100%);
   }
 
   .sfm-vertical-copy {
