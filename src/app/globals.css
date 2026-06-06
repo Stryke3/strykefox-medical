@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
@@ -921,7 +921,7 @@ a {
   color: rgba(6,35,72,0.44);
   font-size: 38px;
   font-weight: 560;
-  font-family: Georgia, serif;
+  font-family: var(--font-syne), Syne, sans-serif;
   background:
     radial-gradient(circle, rgba(255,255,255,0.98), rgba(217,228,239,0.84));
   border: 1px solid rgba(6,35,72,0.16);
@@ -2869,6 +2869,35 @@ html, body { height: 100%; overflow: hidden; background: #fff; background-image:
 .snap-container::-webkit-scrollbar { display: none; }
 
 .snap-section { scroll-snap-align: start; min-height: 100svh; height: 100svh; overflow: hidden; position: relative; }
+
+.soc13-deal-qa-page {
+  min-height: 100svh;
+  background: #060B14;
+  font-family: var(--font-inter), Inter, sans-serif;
+  overflow: visible;
+}
+
+html:has(.soc13-deal-qa-page),
+body:has(.soc13-deal-qa-page) {
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+  background: #060B14;
+}
+
+.snap-container:has(.soc13-deal-qa-page) {
+  height: auto;
+  min-height: 100svh;
+  overflow-y: auto;
+  scroll-snap-type: none;
+}
+
+.snap-section:has(.soc13-deal-qa-page) {
+  height: auto;
+  min-height: 100svh;
+  overflow-y: auto;
+  scroll-snap-align: none;
+}
 
 .sfm-hero,
 .snap-section:first-of-type {
