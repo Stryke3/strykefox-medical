@@ -7,9 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function DealQAPage() {
-  return (
-    <main className="soc13-deal-qa-page">
-      <SoC13DealQA />
-    </main>
-  );
+  return <SoC13DealQA />;
 }
