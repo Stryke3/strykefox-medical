@@ -42,7 +42,7 @@ const platforms = [
   {
     name: "Maternity",
     desc: "Pregnancy and postpartum recovery coordination — provider-directed, compliance-safe, bilingual.",
-    href: "https://mommycarekit.strykefox.com",
+    href: "https://moms2b.com",
   },
   {
     name: "SoC13",
@@ -90,7 +90,7 @@ const verticals = [
     headline: "Maternal recovery coordination, done correctly.",
     body: "CarePath Maternal helps women's health clinics coordinate pregnancy and postpartum recovery products through provider-directed documentation, benefit verification, and fulfillment support. Available in English and Spanish.",
     cta: "Enter Maternity",
-    href: "https://mommycarekit.strykefox.com",
+    href: "https://moms2b.com",
     dark: true,
   },
   {
